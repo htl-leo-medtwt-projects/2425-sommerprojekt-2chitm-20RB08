@@ -1,0 +1,18 @@
+/****************************
+* Fonts
+*****************************/
+/* Chalkboy */
+@font-face {
+    font-family: Chalkboy;
+    src: url(font/Chalkboy.ttf);
+}
+/* Itckrist */
+@font-face {
+    font-family: Itckrist;
+    src: url(font/ITCKRIST.TTF);
+}
+/* FingerPaint */
+@font-face {
+    font-family: FingerPaint;
+    src: url(font/FingerPaint-Regular.ttf);
+}
