@@ -6,11 +6,13 @@
     font-family: Chalkboy;
     src: url(font/Chalkboy.ttf);
 }
+
 /* Itckrist */
 @font-face {
     font-family: Itckrist;
     src: url(font/ITCKRIST.TTF);
 }
+
 /* FingerPaint */
 @font-face {
     font-family: FingerPaint;
@@ -20,11 +22,11 @@
 /****************************
 * Allgemeines
 *****************************/
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
@@ -32,10 +34,59 @@ body{
 /****************************
 * User POV
 *****************************/
-#userView{
+#userView {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 
     position: relative;
     background-color: lightgray;
+}
+
+/****************************
+* Plates
+*****************************/
+/***** Scroll *****/
+.scroll {
+    width: 8.5vw;
+    height: 7vh;
+
+    background-image: url(img/plate/scroll.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    user-select: none;
+    cursor: pointer;
+
+    position: absolute;
+
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+    transition: all 0.15s;
+}
+.scroll:hover{
+    opacity: 1;
+   transform: translate(-50%, -50%) scale(1.1);
+}
+.scroll:active{
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+/*** Scroll elements ***/
+.scroll>* {
+    font-family: Itckrist;
+    font-size: 1.75vw;
+    text-decoration: none;
+    color: black;
+
+    margin: 0px;
+    padding: 0px;
+
+    position: relative;
+    top: 10%;
 }
