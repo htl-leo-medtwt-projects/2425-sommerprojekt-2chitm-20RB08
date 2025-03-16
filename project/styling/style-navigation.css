@@ -1,0 +1,8 @@
+/****************************
+* User POV
+*****************************/
+#userView {
+    background-image: url(../img/background/hill.png);
+    background-size: cover;
+    background-position: center;
+}

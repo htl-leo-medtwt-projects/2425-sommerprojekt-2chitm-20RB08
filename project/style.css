@@ -82,6 +82,7 @@ body {
     font-family: Itckrist;
     font-size: 1.75vw;
     text-decoration: none;
+    text-align: center;
     color: black;
 
     margin: 0px;
@@ -89,4 +90,5 @@ body {
 
     position: relative;
     top: 10%;
+    width: 100%;
 }
