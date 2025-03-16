@@ -6,3 +6,11 @@
     background-size: cover;
     background-position: center;
 }
+
+/****************************
+* Logo
+*****************************/
+#logo{
+    right: 10%;
+    top: 15%;
+}
