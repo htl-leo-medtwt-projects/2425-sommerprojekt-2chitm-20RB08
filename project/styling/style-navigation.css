@@ -10,7 +10,21 @@
 /****************************
 * Logo
 *****************************/
-#logo{
+#logo {
     right: 10%;
     top: 15%;
+}
+
+/****************************
+* Navigation Platten
+*****************************/
+#navPlate {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5vw;
+
+
+    position: absolute;
+    right: 15%;
+    bottom: 15%;
 }

@@ -102,3 +102,38 @@ body {
     top: 10%;
     width: 100%;
 }
+
+/***** Plate *****/
+.plate{
+    width: 27vw;
+    height: 6vw;
+
+    background-image: url(img/plate/plate.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    user-select: none;
+    cursor: pointer;
+
+    position: relative;
+
+    transition: all 0.15s;
+}
+
+.plate >*{
+    font-family: FingerPaint;
+    font-size: 2.5vw;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+
+    margin: 0px;
+    padding: 0px;
+
+    width: 100%;
+}
