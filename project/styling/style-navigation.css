@@ -30,3 +30,6 @@
 
     transform: scale(0.9);
 }
+#navPlate > div:hover{
+    transform: scale(1) rotate(5deg);
+}
