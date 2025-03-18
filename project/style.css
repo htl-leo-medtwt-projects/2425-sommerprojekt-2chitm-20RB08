@@ -136,4 +136,10 @@ body {
     padding: 0px;
 
     width: 100%;
+
+    transform: scale(0.9);
+}
+
+.plate:hover{
+    transform: scale(1) rotate(5deg);
 }
