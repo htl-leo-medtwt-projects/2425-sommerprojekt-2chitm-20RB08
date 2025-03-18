@@ -32,6 +32,33 @@
     background-repeat: no-repeat;
 }
 
+#saleplate h2{
+    font-family: Fingerpaint;
+    font-size: 2.25vw;
+    position: absolute;
+
+    transform: translate(-50%, -50%) scale(1);
+    top: 12%;
+    left: 50%;
+}
+
+/*** Sellable ***/
+#sellable{
+    width: 50vw;
+    height: 17vw;
+    position: absolute;
+    top: 22%;
+    right: 10%;
+
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3vw;
+
+    overflow:scroll;
+    scrollbar-width: none; /* Für Firefox */
+    -ms-overflow-style: none; /* Für Internet Explorer & Edge */
+}
+
 /***** Purchaseplate *****/
 #purchaseplate{
     width: 40vw;
