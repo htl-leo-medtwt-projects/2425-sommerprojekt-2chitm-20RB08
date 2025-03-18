@@ -6,3 +6,89 @@
     background-size: cover;
     background-position: center;
 }
+
+/****************************
+* Plates
+*****************************/
+/****** Shopplate *****/
+#shopplate {
+    position: absolute;
+    margin: 2% 37%;
+    font-family: Chalkboy;
+}
+
+/***** Saleplate *****/
+#saleplate{
+    width: 60vw;
+    height: 67vw;
+
+    position: absolute;
+    bottom: -40%;
+    left: -0%;
+
+    background-image: url(../img/plate/infoplate.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/***** Purchaseplate *****/
+#purchaseplate{
+    width: 40vw;
+    height: 80vw;
+
+    position: absolute;
+    right: 0%;
+    bottom: -70%;
+
+
+    background-image: url(../img/plate/buyPlate.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*** pricetag ***/
+#pricetag{
+    margin: 0 auto;
+    margin-top: 5%;
+
+    
+    transform: scale(0.75);
+}
+#pricetag p{
+    color: var(--gold);
+    font-size: 3.5vw;
+}
+
+/*** info ***/
+#info{
+    width: 50%;
+    margin: 1% auto;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8%;
+
+}
+
+#info > *{
+    height: 10vw;
+    transform: scale(1);
+    transition: all 0.15s;
+
+    user-select: none;
+    cursor: pointer;
+}
+#info > *:hover{
+    transform: scale(1.2);
+}
+
+/*** scrol ***/
+.scroll{
+
+    left: 50%;
+    top: 38%;
+}
