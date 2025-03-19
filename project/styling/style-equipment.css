@@ -1,0 +1,49 @@
+/****************************
+* User POV
+*****************************/
+#userView {
+    background-image: url(../img/background/careered.jpg);
+    
+}
+
+/****************************
+* Player
+*****************************/
+#player{
+    width: 12%;
+
+    transform: translate(-50%, -50%) scale(1);
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+/****************************
+* Piktogramm
+*****************************/
+.piktogramm{
+    height: 12%;
+
+    transform: translate(-50%, -50%) scale(1);
+
+    position: absolute;
+}
+
+/*** Hand ***/
+#hand{
+    right: 15%;
+    top: 50%;
+}
+
+/*** Sword ***/
+#sword{
+    left: 15%;
+    top: 50%;
+}
+
+/*** Helm ***/
+#helm{
+    top: 15%;
+    left: 50%;
+}
