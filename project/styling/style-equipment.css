@@ -2,8 +2,18 @@
 * User POV
 *****************************/
 #userView {
-    background-image: url(../img/background/careered.jpg);
+    background-image: url(../img/arrows.png), url(../img/background/careered.jpg);
+    background-position: center;
+    background-size: cover;
     
+}
+
+/****************************
+* Piktogramm
+*****************************/
+.scroll{
+    left: 6%;
+    top: 6%;
 }
 
 /****************************
@@ -16,7 +26,7 @@
 
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 65%;
 }
 
 /****************************
