@@ -2,7 +2,9 @@
 * User POV
 *****************************/
 #userView {
-    background-image: url(../img/background/careered.jpg);
+    background-image:  url(../img/mapArrows/maparrows5.png), url(../img/background/careered.jpg);
+    background-position: center, center;
+    background-size: cover, auto;
 }
 
 /****************************
@@ -11,4 +13,55 @@
 .scroll{
     left: 6%;
     top: 6%;
+}
+
+/*************************
+* Cave
+**************************/
+.cave{
+    width: 8%;
+    position: absolute;
+
+    transform: scale(1);
+    opacity: 0.8;
+    transition: all 0.15s;
+}
+.cave:hover{
+    transform: scale(1.1);
+    opacity: 1;
+}
+.cave:active{
+    transform: scale(1);
+}
+
+/***** Cave + id *****/
+#cave0{
+    left: 10%;
+    top: 10%;
+}
+
+#cave1{
+    right: 20%;
+    top: 8%;
+}
+
+#cave2{
+    right: 40%;
+    top: 40%;
+}
+
+#cave3{
+    left: 10%;
+    bottom: 30%;
+}
+
+#cave4{
+    bottom: 5%;
+    right: 35%;
+}
+
+#cave5{
+    right: 10%;
+    bottom: 35%;
+    transform: scale(1.5);
 }
