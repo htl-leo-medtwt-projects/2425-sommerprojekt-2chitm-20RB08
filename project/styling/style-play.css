@@ -4,3 +4,11 @@
 #userView {
     background-image: url(../img/background/careered.jpg);
 }
+
+/****************************
+* Plate
+*****************************/
+.scroll{
+    left: 6%;
+    top: 6%;
+}
