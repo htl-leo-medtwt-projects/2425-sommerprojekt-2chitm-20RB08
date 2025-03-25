@@ -2,13 +2,13 @@
  * Loot Class
  ***********************/
 class Loot{
-    constructor(deck, extraLife){
+    constructor(label, deck, img){
+        this.label = label
         this.deck = deck;
-        this.extraLife
+        this.img = img
     }
 }
 
 /***********************
  * Loot
  ***********************/
-const

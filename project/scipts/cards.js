@@ -1,71 +1,58 @@
-/*********************
- * Card class
- ********************/
-class Card{
-    constructor(name, pic, physically, magie, blockPhysically, blockMagie, universalblock, isHero){
-        this.name = name;
-        this.pic = pic;
-        this.physically = physically;
-        this.magie = magie;
-        this.blockPhysically = blockPhysically;
-        this.blockMagie = blockMagie;
-        this.universalblock = universalblock;
-        this.isHero = isHero;
-        this.backside = (isHero) ? '../img/heroCard/backside.png' : '../img/enemieCard/backside.png'
-    }
+/**********************
+ * Card Klass
+ **********************/
+class Card {
+  constructor(name, attack, magie, attackBlock, magieBlock, universalBlock, live, img) {
+    this.name = name;
+    this.attack = attack;
+    this.magie = magie;
+    this.attackBlock = attackBlock;
+    this.magieBlock = magieBlock;
+    this.universalBlock = universalBlock;
+    this.live = live;
+    this.img = img;
+  }
 }
 
-/*********************
- * Herocard
- ********************/
-// === ANGRIFF ===
-const bash = new Card("Bash", "Bash.webp", 1, 0, 0, 0, 0, true);
-const demolish = new Card("Demolish", "Demolish.webp", 3, 0, 0, 0, 0, true);
-const eviscerate = new Card("Eviscerate", "Eviscerate.webp", 2, 0, 0, 0, 0, true);
-const eyesClosedPunch = new Card("Eyes Closed Punch", "Eyes_Closed_Punch.webp", 1, 0, 0, 0, 0, true);
-const fireblast = new Card("Fireblast", "Fireblast.webp", 0, 2, 0, 0, 0, true);
-const luckyHit = new Card("Lucky Hit", "Lucky_Hit.webp", 2, 0, 0, 0, 0, true);
-const slice = new Card("Slice", "Slice.webp", 2, 0, 0, 0, 0, true);
-const smash = new Card("Smash", "Smash.webp", 2, 0, 0, 0, 0, true);
-const smite = new Card("Smite", "Smite.webp", 0, 2, 0, 0, 0, true);
+/**********************
+ * HeroCard
+ **********************/
+const bash = new Card("Bash", 1, 0, 1, 0, 0, 0, "../img/heroCard/Bash.webp");
+const counter = new Card("Counter", 0, 0, 2, 0, 0, 0, "../img/heroCard/Counter.webp");
+const cower = new Card("Cower", 0, 0, 0, 1, 0, 0, "../img/heroCard/Cower.webp");
+const demolish = new Card("Demolish", 3, 0, 0, 0, 0, 0, "../img/heroCard/Demolish.webp");
 
-// === VERTEIDIGUNG ===
-const counter = new Card("Counter", "Counter.webp", 0, 0, 2, 0, 0, true);
-const cower = new Card("Cower", "Cower.webp", 0, 0, 0, 1, 0, true);
-const divineShield = new Card("Divine Shield", "Divine_Shield.webp", 0, 0, 0, 10, 0, true);
-const repel = new Card("Repel", "Repel.webp", 0, 0, 3, 0, 0, true);
+const divineShield = new Card("Divine Shield", 0, 0, 0, 0, 2, 0, "../img/heroCard/Divine_Shield.webp");
+const eviscerate = new Card("Eviscerate", 2, 0, 0, 1, 0, 0, "../img/heroCard/Eviscerate.webp");
+const eyesClosedPunch = new Card("Eyes Closed Punch", 1, 0, 0, 0, 0, 0, "../img/heroCard/Eyes_Closed_Punch.webp");
+const fireblast = new Card("Fireblast", 0, 2, 0, 0, 0, 0, "../img/heroCard/Fireblast.webp");
 
-// === BEIDES / SONSTIGES ===
-const refresh = new Card("Refresh", "Refresh.webp", 0, 0, 0, 0, 0, true);
-const rekindle = new Card("Rekindle", "Rekindle.webp", 0, 0, 1, 0, 0, true);
-const uhh = new Card("Uhh...", "Uhh...webp", 0, 0, 0, 0, 0, true);
+const luckyHit = new Card("Lucky Hit", 2, 0, 0, 0, 0, 0, "../img/heroCard/Lucky_Hit.webp");
+const refresh = new Card("Refresh", 0, 0, 0, 0, 0, 2, "../img/heroCard/Refresh.webp");
+const rekindle = new Card("Rekindle", 0, 0, 1, 0, 0, 1, "../img/heroCard/Rekindle.webp");
+const repel = new Card("Repel", 0, 0, 3, 0, 0, 0, "../img/heroCard/Repel.webp");
 
+const slice = new Card("Slice", 2, 0, 0, 0, 0, 0, "../img/heroCard/Slice.webp");
+const smash = new Card("Smash", 2, 0, 1, 0, 0, 0, "../img/heroCard/Smash.webp");
+const smite = new Card("Smite", 0, 2, 1, 0, 0, 0, "../img/heroCard/Smite.webp");
+const uhh = new Card("Uhh...", 0, 0, 0, 0, 0, 0, "../img/heroCard/Uhh.webp");
+const oi = new Card("Oi!", 1, 0, 0, 0, 0, 0, "../img/heroCard/Oi.webp");
+const youTryinSomething = new Card("You tryin' something?", 0, 0, 2, 0, 0, 0, "../img/heroCard/You_Tryin_Something.webp");
+const getOuttaHere = new Card("Get outta here", 0, 0, 2, 0, 0, 0, "../img/heroCard/Get_Outta_Here.webp");
+const howDoYouLikeThis = new Card("How do you like this?", 1, 0, 1, 0, 0, 0, "../img/heroCard/How_Do_You_Like_This.webp");
+const niceTryChump = new Card("Nice try, chump", 1, 0, 1, 0, 0, 0, "../img/heroCard/Nice_Try_Chump.webp");
+const fireShield = new Card("Fire shield", 0, 1, 0, 1, 0, 0, "../img/heroCard/Fire_Shield.wedp");
 
-// Alle Karten in einem gemeinsamen Array
-const attackCards = [
-    bash,
-    demolish,
-    eviscerate,
-    eyesClosedPunch,
-    fireblast,
-    luckyHit,
-    slice,
-    smash,
-    smite
-  ];
-  
-  const defenseCards = [
-    counter,
-    cower,
-    divineShield,
-    repel
-  ];
-  
-  const bothCards = [
-    refresh,
-    rekindle,
-    uhh
-  ];
-  
-  // Anfagsdeck
-  let startDeck = []
+const allHeroCards = [
+  bash, counter, cower, demolish,
+  divineShield, eviscerate, eyesClosedPunch, fireblast,
+  luckyHit, refresh, rekindle, repel,
+  slice, smash, smite, uhh
+];
+
+// 3 starddecks
+const startdeck = [
+  [eyesClosedPunch, eyesClosedPunch, eyesClosedPunch, luckyHit, cower, cower],
+  [oi, oi, youTryinSomething, getOuttaHere, getOuttaHere, niceTryChump],
+  [fireShield, fireShield, niceTryChump, niceTryChump, rekindle, smite, uhh]
+]
