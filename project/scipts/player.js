@@ -1,5 +1,3 @@
-
-
 /*************************
  * New Player
  **************************/
@@ -22,7 +20,7 @@ let newPlayer = {
     getAllCard: function () {
         this.deck = [];
         this.deck.push(this.startDeck),
-            this.deck.push(this.weapon);
+        this.deck.push(this.weapon);
         this.deck.push(this.armor);
         this.deck.push(this.skil);
     }
