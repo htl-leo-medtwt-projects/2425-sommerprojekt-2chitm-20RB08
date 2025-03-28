@@ -1,28 +1,46 @@
 /*************************
  * New Player
  **************************/
-let newPlayer = {
-    name: 'Held',
-    health: 5,
-    deck: [],
-    startDeck: startdeck[Math.floor(Math.random() * startdeck.length)],
-    gold: 0,
+class Player {
+    constructor(name = 'Held', startDecks = []) {
+        this.name = name;
+        this.health = 5;
+        this.gold = 0;
 
-    // Buyed Loot
-    weaponArr: [],
-    armorArr: [],
-    skilArr: [],
-    // loot Cards
-    weapon: null,
-    armor: null,
-    skil: null,
+        // Random Startdeck
+        this.startDeck = startDecks[Math.floor(Math.random() * startDecks.length)];
 
-    getAllCard: function () {
+        // Alle Karten (wird später zusammengesetzt)
         this.deck = [];
-        this.deck.push(this.startDeck),
-        this.deck.push(this.weapon);
-        this.deck.push(this.armor);
-        this.deck.push(this.skil);
+
+        // Gekaufte Loots
+        this.weaponArr = [];
+        this.armorArr = [];
+        this.skilArr = [];
+
+        // Ausgerüstete Loots
+        this.weapon = null;
+        this.armor = null;
+        this.skil = null;
+
+        // Alle Karten beim Start laden
+        this.getAllCard();
+    }
+
+    getAllCard() {
+        this.deck = [];
+
+        // Startdeck
+        if (this.startDeck) this.deck.push(this.startDeck);
+
+        // Ausgerüstete Loots
+        if (this.weapon) this.deck.push(this.weapon.deck);
+        if (this.armor) this.deck.push(this.armor.deck);
+        if (this.skil) this.deck.push(this.skil.deck);
+    }
+
+    getAllOwnedLoots() {
+        return [this.weaponArr, this.armorArr, this.skilArr];
     }
 }
 class Fighter {
@@ -54,7 +72,7 @@ class Fighter {
 /***********************
  * Get or create Player
  **********************/
-let player = JSON.parse(localStorage['CC_player'] ?? newPlayer);
+let player = JSON.parse(localStorage['CC_player'] ?? new Player());
 
 localStorage['CC_player'] = JSON.stringify(player);
 
