@@ -15,15 +15,15 @@ class Loot{
  * Loot
  ***********************/
 // Weapon
-const flintlock = new Loot('Flintlock', 'weapon', [eyesClosedPunch, luckyHit], 20, '../img/flintlock.png')
-const brassKnuccles = new Loot('Brass Knuccles', 'weapon', [eyesClosedPunch, luckyHit], 20, '../img/brassKnuccles.png')
+const flintlock = new Loot('Flintlock', 'weapon', [eyesClosedPunch, luckyHit], 20, '../img/lootCard/flintlock.png')
+const brassKnuccles = new Loot('Brass Knuccles', 'weapon', [eyesClosedPunch, luckyHit], 20, '../img/lootCard/brassKnuccles.png')
 
 // Amor
-const spikyHat = new Loot('Spiky Hat', 'amor', [bash, youTryinSomething], 20, '../img/spikyHat.png')
-const hornedHelm = new Loot('Horned Helm', 'amor', [bash, youTryinSomething], 20, '../img/hornedHelm.png')
-const doomPlate = new Loot('Doom Plate', 'amor', [bash, youTryinSomething], 20, '../img/doomPlae.png')
+const spikyHat = new Loot('Spiky Hat', 'amor', [bash, youTryinSomething], 20, '../img/lootCard/spikyHat.png')
+const hornedHelm = new Loot('Horned Helm', 'amor', [bash, youTryinSomething], 20, '../img/lootCard/hornedHelm.png')
+const doomPlate = new Loot('Doom Plate', 'amor', [bash, youTryinSomething], 20, '../img/lootCard/doomPlate.png')
 
 // Skil
-const spyglass = new Loot('Spyglass', 'skil', [demolish, uhh], 20, '../img/lootCard.png')
+const spyglass = new Loot('Spyglass', 'skil', [demolish, uhh], 20, '../img/lootCard/spyglass.png')
 
 const loot = [flintlock, brassKnuccles, spikyHat, hornedHelm, doomPlate, spyglass];

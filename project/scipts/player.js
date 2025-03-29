@@ -72,7 +72,7 @@ class Fighter {
 /***********************
  * Get or create Player
  **********************/
-let player = JSON.parse(localStorage['CC_player'] ?? new Player());
+let player = JSON.parse(localStorage['CC_player'] ?? JSON.stringify(new Player()));
 
 localStorage['CC_player'] = JSON.stringify(player);
 
