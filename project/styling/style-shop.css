@@ -119,3 +119,23 @@
     left: 50%;
     top: 38%;
 }
+
+/*****************
+* Loot Card
+******************/
+.lootCard{
+    opacity: 0.8;
+    transform: scale(0.9);
+    transition: all 0.15s;
+}
+.lootCard:hover{
+   opacity: 1;
+   transform: scale(0.95);
+}
+.lootCard:active{
+    transform: scale(0.9);
+}
+.activeLootCard{
+    opacity: 1;
+    transform: scale(1);
+}

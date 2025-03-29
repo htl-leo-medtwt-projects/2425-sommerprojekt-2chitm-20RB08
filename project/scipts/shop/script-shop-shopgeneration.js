@@ -37,15 +37,29 @@ function getSellable() {
 /****************************
  * Create saleplate
  **************************/
-function createSellable(){
+function createSellable() {
     let s = '';
 
-    for (let i = 0; i < sellable.length; i++){
+    for (let i = 0; i < sellable.length; i++) {
         s += `
-        <img src="${sellable[i].img}" alt="">
+        <img class="lootCard" id="lootCard${i}" src="${sellable[i].img}" alt="${sellable[i].name}"  onclick="selectLootCard(${i})">
         `;
     }
 
     document.getElementById('sellable').innerHTML = s;
+    console.log('Sellable is created');
+
 }
 createSellable();
+
+/*************************
+ * Select loot card
+ ************************/
+function selectLootCard(num) {
+
+    // Sellable neuladen
+    createSellable();
+
+    // obj hinzufügen
+    document.getElementById(`lootCard${num}`).classList.add('activeLootCard')
+}
