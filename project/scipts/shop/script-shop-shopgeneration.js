@@ -83,7 +83,7 @@ function createPurchaseplate(pos){
             </div>
 
             <!--Scrool-->
-            <div class="scroll" onclick="buyLootCard(${pos})"><p>Buy</p></div>
+            <div class="scroll" id="buyButtom" onclick="buyLootCard(${pos})"><p>Buy</p></div>
     `;
 }
 function getLootInfo(deck){
@@ -124,7 +124,11 @@ function buyLootCard(pos){
         // Alles neuladen
         getSellable();        
     } else{
-        // fehler
+        // fehler animation
+        document.getElementById('buyButtom').style.animation = 'none';
+        document.getElementById('buyButtom').offsetHeight;
+        document.getElementById('buyButtom').style.animation = 'errorShake 0.4s ease';
+
         // information loggen
         console.log(`***** Purchaes failde *****\n You do not have enough gold!`);
     }
