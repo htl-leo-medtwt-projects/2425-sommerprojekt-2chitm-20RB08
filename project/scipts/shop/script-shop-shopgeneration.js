@@ -4,6 +4,7 @@
 let sellable = [];
 getSellable();
 function getSellable() {
+    sellable = [];
     // Alle gekauften Loots zusammenführen
     const playerLoots = [
         ...player.weaponArr,
@@ -31,7 +32,7 @@ function getSellable() {
     }
     console.log('***** Our Ware *****');
     console.log(sellable);
-
+    createSellable();
 }
 
 /****************************
@@ -50,16 +51,81 @@ function createSellable() {
     console.log('Sellable is created');
 
 }
-createSellable();
+
 
 /*************************
  * Select loot card
  ************************/
 function selectLootCard(num) {
-
     // Sellable neuladen
     createSellable();
 
     // obj hinzufügen
-    document.getElementById(`lootCard${num}`).classList.add('activeLootCard')
+    document.getElementById(`lootCard${num}`).classList.remove('lootCard')
+    document.getElementById(`lootCard${num}`).classList.add('activeLootCard');
+
+    // purchaes plate anzegen
+    createPurchaseplate(num);
+}
+// create purchaseplate
+function createPurchaseplate(pos){
+    console.log('***** Purchaseplate is createt');
+    
+    document.getElementById('purchaseplate').innerHTML = `
+            <!--Pricetag-->
+            <div class="plate" id="pricetag">
+                <p>${sellable[pos].price}</p>
+            </div>
+
+            <!--information-->
+            <div id="info">
+                ${getLootInfo(sellable[pos].deck)}
+            </div>
+
+            <!--Scrool-->
+            <div class="scroll" onclick="buyLootCard(${pos})"><p>Buy</p></div>
+    `;
+}
+function getLootInfo(deck){
+    let s = '';
+    for (let i = 0; i < deck.length; i++){
+        s += `<img src="${deck[i].img}" alt="${deck[i].name}">`;
+    }
+    return s;
+}
+
+/*************************
+ * Buy LootCard
+ ************************/
+function buyLootCard(pos){
+    if (player.gold - sellable[pos].price >= 0){
+        // gold vom Spieler abziehen
+        player.gold -= sellable[pos].price
+
+        // Art des Loot richtig einsortieren
+        switch(sellable[pos].label){
+            case 'weapon':
+                player.weaponArr.push(sellable[pos]);
+                break;
+            case 'amor':
+                player.armorArr.push(sellable[pos]);
+                break;
+            case 'skil':
+                player.skilArr.push(sellable[pos]);
+                break;
+        }
+
+        // Player neuen status speichern
+        localStorage['CC_player'] = JSON.stringify(player);
+
+          // information loggen
+          console.log(`***** Purchaes succeeded *****\nYou bought${sellable[pos].name}`);
+
+        // Alles neuladen
+        getSellable();        
+    } else{
+        // fehler
+        // information loggen
+        console.log(`***** Purchaes failde *****\n You do not have enough gold!`);
+    }
 }

@@ -5,7 +5,7 @@ class Player {
     constructor(name = 'Held', startDecks = []) {
         this.name = name;
         this.health = 5;
-        this.gold = 0;
+        this.gold = 20;
 
         // Random Startdeck
         this.startDeck = startDecks[Math.floor(Math.random() * startDecks.length)];
