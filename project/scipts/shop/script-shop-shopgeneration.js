@@ -50,6 +50,7 @@ function createSellable() {
     document.getElementById('sellable').innerHTML = s;
     console.log('Sellable is created');
 
+    document.getElementById('playerGold').innerHTML = player.gold;
 }
 
 
