@@ -71,6 +71,16 @@
 }
 
 /***** Purchaseplate *****/
+@keyframes switch {
+    0%{transform: rotate(0deg); bottom: -70%;}
+    50%{transform: rotate(90deg); bottom: -80%;}
+    100%{transform: rotate(0deg); bottom: -70%;}
+}
+@keyframes bought {
+    0%{bottom: -70%;}
+    50%{bottom: -85%;}
+    100%{bottom: -70%;}
+}
 #purchaseplate{
     width: 40vw;
     height: 80vw;
@@ -84,6 +94,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    transform: rotate(0deg);
 }
 
 /*** pricetag ***/

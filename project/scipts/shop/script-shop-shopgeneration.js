@@ -55,20 +55,8 @@ function createSellable() {
 
 
 /*************************
- * Select loot card
+ * Create Purchaseplate
  ************************/
-function selectLootCard(num) {
-    // Sellable neuladen
-    createSellable();
-
-    // obj hinzufügen
-    document.getElementById(`lootCard${num}`).classList.remove('lootCard')
-    document.getElementById(`lootCard${num}`).classList.add('activeLootCard');
-
-    // purchaes plate anzegen
-    createPurchaseplate(num);
-}
-// create purchaseplate
 function createPurchaseplate(pos){
     console.log('***** Purchaseplate is createt');
     
@@ -93,44 +81,4 @@ function getLootInfo(deck){
         s += `<img src="${deck[i].img}" alt="${deck[i].name}">`;
     }
     return s;
-}
-
-/*************************
- * Buy LootCard
- ************************/
-function buyLootCard(pos){
-    if (player.gold - sellable[pos].price >= 0){
-        // gold vom Spieler abziehen
-        player.gold -= sellable[pos].price
-
-        // Art des Loot richtig einsortieren
-        switch(sellable[pos].label){
-            case 'weapon':
-                player.weaponArr.push(sellable[pos]);
-                break;
-            case 'amor':
-                player.armorArr.push(sellable[pos]);
-                break;
-            case 'skil':
-                player.skilArr.push(sellable[pos]);
-                break;
-        }
-
-        // Player neuen status speichern
-        localStorage['CC_player'] = JSON.stringify(player);
-
-          // information loggen
-          console.log(`***** Purchaes succeeded *****\nYou bought${sellable[pos].name}`);
-
-        // Alles neuladen
-        getSellable();        
-    } else{
-        // fehler animation
-        document.getElementById('buyButtom').style.animation = 'none';
-        document.getElementById('buyButtom').offsetHeight;
-        document.getElementById('buyButtom').style.animation = 'errorShake 0.4s ease';
-
-        // information loggen
-        console.log(`***** Purchaes failde *****\n You do not have enough gold!`);
-    }
 }
