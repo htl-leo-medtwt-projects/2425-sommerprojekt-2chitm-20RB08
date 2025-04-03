@@ -15,7 +15,7 @@ class Player {
 
         // Gekaufte Loots
         this.weaponArr = [];
-        this.armorArr = [];
+        this.armorArr = [flintlock];
         this.skilArr = [];
 
         // Ausgerüstete Loots
