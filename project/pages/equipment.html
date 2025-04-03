@@ -8,6 +8,12 @@
     <!--Style-->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../styling/style-equipment.css">
+    <!--Standard Script-->
+    <script src="../scipts/cards.js" defer></script>
+    <script src="../scipts/loot.js" defer></script>
+    <script src="../scipts/player.js" defer></script>
+    <!--Spezialisierte script m-->
+    <script src="../scipts/equipment/script-equipment-generation.js" defer></script>
 </head>
 
 <body>
@@ -24,6 +30,19 @@
         <!--Scroll-->
         <div class="scroll">
             <a href="navigation.html">Back</a>
+        </div>
+
+        <!--Select plate-->
+        <div id="selectplate">
+            <img src="../img/arrow.png" alt="close" id="closeArrow" onclick="closeSelectplate()">
+            <h1>Use you ??? LootCard</h1>
+            <div id="lootCardSelection">
+                <img src="../img/lootCard/DoomPlate.png" alt="" id="lootCard">
+                <img src="../img/lootCard/DoomPlate.png" alt="" id="lootCard">
+                <img src="../img/lootCard/DoomPlate.png" alt="" id="lootCard">
+                <img src="../img/lootCard/DoomPlate.png" alt="" id="lootCard">
+                <img src="../img/lootCard/DoomPlate.png" alt="" id="lootCard">
+            </div>
         </div>
     </div>
 

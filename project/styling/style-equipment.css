@@ -16,6 +16,61 @@
     top: 6%;
 }
 
+/***** Selectcard *****/
+@keyframes selectplateDisapear {
+    from{bottom: -40%;}
+    to{bottom: -150%;}
+}
+#selectplate{
+    width: 75vw;
+    height: 84vw;
+
+    position: absolute;
+    bottom: -40%;
+    left: 13%;
+
+    background-image: url(../img/plate/infoplate.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    animation: selectplateDisapear 1s;
+}
+#selectplate h1{
+    font-family: Fingerpaint;
+    font-size: 2.25vw;
+    position: absolute;
+
+    transform: translate(-50%, -50%) scale(1);
+    top: 13%;
+    left: 50%;
+
+    background-color: rgba(255, 255, 255, 0.563);
+    padding: 1%;
+    border-radius: 10px;
+    text-align: center;
+}
+/*** Close Arrow ***/
+#closeArrow{
+    position: absolute;
+    left: 6%;
+    top: 11%;
+    width: 8%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+
+    transform: scale(0.9);
+    opacity: 0.8;
+    transition: all 0.15s;
+}
+#closeArrow:hover{
+    transform: scale(1);
+    opacity: 1;
+}
+#closeArrow:active{
+    transform: scale(0.9);
+}
+
 /****************************
 * Player
 *****************************/
@@ -66,4 +121,43 @@
 #helm{
     top: 15%;
     left: 50%;
+}
+
+/**********************
+* LootCardSelection
+***********************/
+#lootCardSelection{
+    width: 60vw;
+    height: 17vw;
+    position: absolute;
+    top: 22%;
+    right: 12%;
+
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3vw;
+
+    overflow:scroll;
+    scrollbar-width: none; /* Für Firefox */
+    -ms-overflow-style: none; /* Für Internet Explorer & Edge */
+}
+
+/*****************
+* Loot Card
+******************/
+.lootCard{
+    opacity: 0.8;
+    transform: scale(0.9);
+    transition: all 0.15s;
+}
+.lootCard:hover{
+   opacity: 1;
+   transform: scale(0.95);
+}
+.lootCard:active{
+    transform: scale(0.9);
+}
+.activeLootCard{
+    opacity: 1;
+    transform: scale(1);
 }
