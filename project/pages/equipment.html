@@ -14,6 +14,7 @@
     <script src="../scipts/player.js" defer></script>
     <!--Spezialisierte script m-->
     <script src="../scipts/equipment/script-equipment-generation.js" defer></script>
+    <script src="../scipts/equipment/script-equipment-selection.js" defer></script>
 </head>
 
 <body>
@@ -35,18 +36,24 @@
         <!--Select plate-->
         <div id="selectplate">
             <img src="../img/arrow.png" alt="close" id="closeArrow" onclick="closeSelectplate()">
-            <h1>Use you ??? LootCard</h1>
+            <h1>Select your LootCard</h1>
             <div id="lootCardSelection">
-                <img src="../img/lootCard/DoomPlate.png" alt="" class="lootCard">
-                <img src="../img/lootCard/DoomPlate.png" alt="" class="lootCard">
-                <img src="../img/lootCard/DoomPlate.png" alt="" class="lootCard">
-                <img src="../img/lootCard/DoomPlate.png" alt="" class="lootCard">
-                <img src="../img/lootCard/DoomPlate.png" alt="" class="lootCard">
+                <!--Evry Card-->
+            </div>
+
+            <!--Equiptions-->
+            <div id="equip">
+                <img id="equipClose" src="../img/mapArrows/backArrow.jpg" alt="close" onclick="closeEquip()">
+                <div id="cards">
+                    <img src="../img/heroCard/Cower.webp" alt="">
+                    <img src="../img/heroCard/Cower.webp" alt="">
+                    <img src="../img/heroCard/Cower.webp" alt="">
+                    <img src="../img/heroCard/Cower.webp" alt="">
+                </div>
+                <span id="equipButton">Equip</span>
             </div>
         </div>
     </div>
-
-
 </body>
 
 </html>

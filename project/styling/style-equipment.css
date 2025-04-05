@@ -26,7 +26,7 @@
     height: 84vw;
 
     position: absolute;
-    bottom: -140%;
+    bottom: -150%;
     left: 13%;
 
     background-image: url(../img/plate/infoplate.png);
@@ -158,4 +158,87 @@
 .activeLootCard{
     opacity: 1;
     transform: scale(1);
+}
+
+/************************
+*eqiuip
+************************/
+#equip{
+    width: 35vw;
+    height: 15vw;
+    background-image: url(../img/plate/scroll.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1);
+    left: 50%;
+    bottom: 50%;
+}
+#equipClose{
+    width: 5%;
+    position: absolute;
+    left: 15%;
+    top: 25%;
+    z-index: 1;
+
+    user-select: none;
+    cursor: pointer;
+
+    transform: scale(1);
+}
+#equipClose:active{
+    transform: scale(0.9);
+}
+
+/***** Cards *****/
+#cards {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw
+}
+#cards img{
+    width: 15%;
+    transform: scale(1);
+    z-index: 0;
+
+    transition: all 0.15s;
+}
+#cards img:hover{
+    transform: scale(2.5);
+    z-index: 1;
+}
+
+/***** Button *****/
+#equipButton{
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1);
+    left: 50%;
+    bottom: 3%;
+
+    font-family: FingerPaint;
+    font-size: 1.25vw;
+
+    user-select: none;
+    cursor: pointer;
+
+    opacity: 0.8;
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+    transition: all 0.15s;
+}
+#equipButton:hover{
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+}
+#equipButton:active{
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 1;
+    border-bottom: 2px solid black;
 }
