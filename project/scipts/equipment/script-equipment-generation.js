@@ -16,16 +16,17 @@ function closeSelectplate() {
  **********************/
 function openSelectplate(cat){
     let sectionArr;
+    console.log('===== Section ' + cat + '=====');
     switch(cat){
-        case 'weapon' : sectionArr = player.weaponArr; break;
-        case 'amor' : sectionArr = player.amorArr; break;
-        case 'skil' : sectionArr = player.skilArr; break;
+        case 'weapon' : sectionArr = player.weaponArr; console.log(player.weaponArr); break;
+        case 'armor' : sectionArr = player.armorArr; console.log(player.armorArr); break;
+        case 'skil' : sectionArr = player.skilArr; console.log(player.skilArr); break;
     }
     console.log(sectionArr);
     
 
     let s = '';
-    for (let i = 0; i < sectionArr.length;i++){
+    for (let i = 0; i < sectionArr.length; i++){
         s += `<img src="${sectionArr[i].img}" alt="${sectionArr[i].name}"" class="lootCard">`;
     }
     document.getElementById('lootCardSelection').innerHTML = s;
