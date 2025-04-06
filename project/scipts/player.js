@@ -14,12 +14,12 @@ class Player {
         this.deck = [];
 
         // Gekaufte Loots
-        this.weaponArr = [flintlock, flintlock, flintlock];
-        this.armorArr = [flintlock,flintlock];
-        this.skilArr = [];
+        this.weaponArr = [flintlock, spyglass];
+        this.armorArr = [flintlock];
+        this.skilArr = [spyglass];
 
         // Ausgerüstete Loots
-        this.weapon = null;
+        this.weapon = flintlock;
         this.armor = null;
         this.skil = null;
 
@@ -76,3 +76,9 @@ let player = JSON.parse(localStorage['CC_player'] ?? JSON.stringify(new Player()
 
 localStorage['CC_player'] = JSON.stringify(player);
 
+/***********************
+ * Safe player
+ **********************/
+function safePlayer(){
+    localStorage['CC_player'] = JSON.stringify(player);
+}

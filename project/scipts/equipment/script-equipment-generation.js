@@ -8,6 +8,7 @@ function closeSelectplate() {
 
     setTimeout(()=>{
         document.getElementById('selectplate').style.bottom = '-150%';
+        closeEquip();
     }, 1000)
 }
 
@@ -15,19 +16,14 @@ function closeSelectplate() {
  * OpenSelectcard
  **********************/
 function openSelectplate(cat){
-    let sectionArr;
     console.log('===== Section ' + cat + ' =====');
-    switch(cat){
-        case 'weapon' : sectionArr = player.weaponArr; console. break;
-        case 'armor' : sectionArr = player.armorArr;  break;
-        case 'skil' : sectionArr = player.skilArr; break;
-    }
+    let sectionArr = getSectionArray(cat);
     console.log(sectionArr);
     
 
     let s = '';
     for (let i = 0; i < sectionArr.length; i++){
-        s += `<img src="${sectionArr[i].img}" alt="${sectionArr[i].name}"" class="lootCard" id="lootCard${i}" onclick="openEquip(${cat}, ${i})">`;
+        s += `<img src="${sectionArr[i].img}" alt="${sectionArr[i].name}"" class="lootCard" id="lootCard${i}" onclick="openEquip('${cat}', ${i})">`;
     }
     document.getElementById('lootCardSelection').innerHTML = s;
 
@@ -39,4 +35,17 @@ function openSelectplate(cat){
     setTimeout(()=>{
         document.getElementById('selectplate').style.bottom = '-40%';
     }, 1000)
+}
+
+/**********************
+ * Get Section Array
+ **********************/
+function getSectionArray(cat){
+    let sectionArr;
+    switch(cat){
+        case 'weapon' : sectionArr = player.weaponArr;  break;
+        case 'armor' : sectionArr = player.armorArr;  break;
+        case 'skil' : sectionArr = player.skilArr; break;
+    }
+    return sectionArr
 }

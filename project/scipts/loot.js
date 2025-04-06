@@ -14,6 +14,7 @@ class Loot{
 /***********************
  * Loot
  ***********************/
+const emptyLoot  = new Loot('nothing', '....', [], 0, 'not here');
 // Weapon
 const flintlock = new Loot('Flintlock', 'weapon', [eyesClosedPunch, luckyHit], 40, '../img/lootCard/flintlock.png')
 const brassKnuccles = new Loot('Brass Knuccles', 'weapon', [eyesClosedPunch, luckyHit], 15, '../img/lootCard/brassKnuccles.png')
