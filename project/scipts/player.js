@@ -14,9 +14,9 @@ class Player {
         this.deck = [];
 
         // Gekaufte Loots
-        this.weaponArr = [flintlock, spyglass];
+        this.weaponArr = [flintlock];
         this.armorArr = [flintlock];
-        this.skilArr = [spyglass];
+        this.skilArr = [];
 
         // Ausgerüstete Loots
         this.weapon = null;

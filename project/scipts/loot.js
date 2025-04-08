@@ -19,10 +19,10 @@ const emptyLoot  = new Loot('nothing', '....', [], 0, 'not here');
 const flintlock = new Loot('Flintlock', 'weapon', [eyesClosedPunch, luckyHit], 40, '../img/lootCard/flintlock.png')
 const brassKnuccles = new Loot('Brass Knuccles', 'weapon', [eyesClosedPunch, luckyHit], 15, '../img/lootCard/brassKnuccles.png')
 
-// Amor
-const spikyHat = new Loot('Spiky Hat', 'amor', [bash, youTryinSomething], 7, '../img/lootCard/spikyHat.png')
-const hornedHelm = new Loot('Horned Helm', 'amor', [bash, youTryinSomething], 57, '../img/lootCard/hornedHelm.png')
-const doomPlate = new Loot('Doom Plate', 'amor', [bash, youTryinSomething, bash], 20, '../img/lootCard/doomPlate.png')
+// armor
+const spikyHat = new Loot('Spiky Hat', 'armor', [bash, youTryinSomething], 7, '../img/lootCard/spikyHat.png')
+const hornedHelm = new Loot('Horned Helm', 'armor', [bash, youTryinSomething], 57, '../img/lootCard/hornedHelm.png')
+const doomPlate = new Loot('Doom Plate', 'armor', [bash, youTryinSomething, bash], 20, '../img/lootCard/doomPlate.png')
 
 // Skil
 const spyglass = new Loot('Spyglass', 'skil', [demolish, uhh], 26, '../img/lootCard/spyglass.png')

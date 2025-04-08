@@ -110,6 +110,14 @@
     font-size: 3.5vw;
 }
 
+/*** piktogramm ***/
+#piktogramm{
+    max-height: 2vw;
+    position: absolute;
+    right: 30%;
+    top: 5%;
+}
+
 /*** info ***/
 #info{
     width: 50%;

@@ -66,6 +66,9 @@ function createPurchaseplate(pos){
                 <p>${sellable[pos].price}</p>
             </div>
 
+            <!--Piktogramm-->
+            <img id="piktogramm" src="../img/${sellable[pos].label}.png" alt="${sellable[pos].label}">
+
             <!--information-->
             <div id="info">
                 ${getLootInfo(sellable[pos].deck)}
