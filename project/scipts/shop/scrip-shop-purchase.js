@@ -34,7 +34,7 @@ function buyLootCard(pos) {
             case 'weapon':
                 player.weaponArr.push(sellable[pos]);
                 break;
-            case 'amor':
+            case 'armor':
                 player.armorArr.push(sellable[pos]);
                 break;
             case 'skil':
