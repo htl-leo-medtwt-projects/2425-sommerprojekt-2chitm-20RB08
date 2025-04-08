@@ -20,11 +20,8 @@ function openSelectplate(cat){
     let sectionArr = getSectionArray(cat);
     console.log(sectionArr);
     
-
-    let s = '';
-    for (let i = 0; i < sectionArr.length; i++){
-        s += `<img src="${sectionArr[i].img}" alt="${sectionArr[i].name}"" class="lootCard" id="lootCard${i}" onclick="openEquip('${cat}', ${i})">`;
-    }
+    // zeigen
+    let s = getSectionLootCard(cat);
     document.getElementById('lootCardSelection').innerHTML = s;
 
     // animation
@@ -35,6 +32,19 @@ function openSelectplate(cat){
     setTimeout(()=>{
         document.getElementById('selectplate').style.bottom = '-40%';
     }, 1000)
+}
+function getSectionLootCard(cat){
+    let sectionArr = getSectionArray(cat);
+    let sectionCat = getCatogory(cat);
+    let s = '';
+    for (let i = 0; i < sectionArr.length; i++){
+        if(sectionCat == null || sectionCat.name != sectionArr[i].name){
+        s += `<img src="${sectionArr[i].img}" alt="${sectionArr[i].name}"" class="lootCard" id="lootCard${i}" onclick="openEquip('${cat}', ${i})">`;
+        } else{
+        s += `<img src="${sectionArr[i].img}" alt="${sectionArr[i].name}"" class="activeLootCard" id="lootCard${i}" onclick="openEquip('${cat}', ${i})">`;
+        }
+    }
+    return s;
 }
 
 /**********************

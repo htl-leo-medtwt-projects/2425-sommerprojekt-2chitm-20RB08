@@ -69,6 +69,10 @@ function unequipLootCaard(cat, pos) {
 
     // safe player
     safePlayer();
+
+    // zeigen
+    let s = getSectionLootCard(cat);
+    document.getElementById('lootCardSelection').innerHTML = s;
 }
 function equipLootCaard(cat, pos) {
     console.log(`***${cat} Equipt***`);
@@ -82,10 +86,14 @@ function equipLootCaard(cat, pos) {
 
     // switching to unequip
     document.getElementById('equipButton').innerHTML = 'Unequip'
-    document.getElementById('equipButton').setAttribute('onclick', `unequipLootCaard('${cat}')`)
+    document.getElementById('equipButton').setAttribute('onclick', `unequipLootCaard('${cat}', ${pos})`)
 
     // safe player
     safePlayer();
+
+    // zeigen
+    let s = getSectionLootCard(cat);
+    document.getElementById('lootCardSelection').innerHTML = s;
 }
 /********************
  * Close Equipment

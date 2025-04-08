@@ -19,7 +19,7 @@ class Player {
         this.skilArr = [spyglass];
 
         // Ausgerüstete Loots
-        this.weapon = flintlock;
+        this.weapon = null;
         this.armor = null;
         this.skil = null;
 
@@ -55,7 +55,7 @@ class Fighter {
         // Slot
         this.weapon;
         this.armor;
-        this.skill = [];
+        this.skill;
 
         // deck
         this.startDeck = startDeck;
