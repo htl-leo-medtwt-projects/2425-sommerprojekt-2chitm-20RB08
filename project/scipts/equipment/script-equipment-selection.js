@@ -103,3 +103,30 @@ function closeEquip() {
     console.log('Close Equip');
 
 }
+
+/*****************
+ * Change username
+ *****************/
+function openUsernameInput(){
+    document.getElementById('userNameInput').style.top = '40%';
+    document.getElementById('name').value = player.name;
+
+    // give close
+    document.getElementById('player').setAttribute('onclick', `closeUsernameInput()`)
+}
+
+function closeUsernameInput(){
+    document.getElementById('userNameInput').style.top = '-40%';
+    // give close
+    document.getElementById('player').setAttribute('onclick', `openUsernameInput()`)
+}
+
+function changeUserName() {
+    let name = document.getElementById('name').value;
+
+    if (name != '' && name != ' '){
+        console.log(`-- ${player.name} is rename to ${name} --`);
+        player.name = name;
+        safePlayer();
+    }
+}

@@ -81,6 +81,14 @@
     left: 50%;
     top: 65%;
 }
+#userNameInput{
+    position: absolute;
+    left: 35%;
+    top: -40%;
+}
+#userNameInput:active{
+    border: none
+}
 
 /****************************
 * Piktogramm

@@ -21,7 +21,8 @@
     <!--USER POV-->
     <div id="userView">
         <!--Player-->
-        <img src="../img/charakter/player.png" alt="player" id="player">
+        <div class="plate" id="userNameInput"><input type="text" style="border: none;" id="name" onchange="changeUserName()"></div>
+        <img src="../img/charakter/player.png" alt="player" id="player" onclick="openUsernameInput()">
 
         <!--Piktogramme-->
         <img src="../img/skil.png" alt="hand" id="hand" class="piktogramm" onclick="openSelectplate('skil')">
