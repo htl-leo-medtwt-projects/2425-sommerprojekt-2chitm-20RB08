@@ -110,7 +110,7 @@ body {
     font-size: 1.75vw;
     text-decoration: none;
     text-align: center;
-    color: var(--black);
+    color: var(--black) !important;
 
     margin: 0px;
     padding: 0px;
