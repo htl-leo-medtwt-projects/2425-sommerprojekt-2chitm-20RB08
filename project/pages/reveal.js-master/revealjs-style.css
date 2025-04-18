@@ -6,7 +6,7 @@ h2 {
     font-weight: lighter !important;
 }
 
-p{
+p {
     font-family: FingerPaint !important;
     margin: 0px;
     font-size: 2vw;
@@ -23,9 +23,9 @@ p{
     opacity: 0.7;
     width: 18vw !important;
     z-index: -2;
-  }
-  
-  .logo-end {
+}
+
+.logo-end {
     position: absolute;
     left: 10%;
     top: 10%;
@@ -33,4 +33,63 @@ p{
     opacity: 1;
     width: 18vw !important;
     z-index: 1;
-  }
+}
+
+/***************
+  * Animation
+  **************/
+  @keyframes spin {
+    0% {
+        transform: rotate(0deg);
+      }
+      20% {
+        transform: rotate(360deg);
+      }
+      40% {
+        transform: rotate(630deg); /* verlangsamt */
+      }
+      55% {
+        transform: rotate(720deg); /* ganz langsam */
+      }
+      100% {
+        transform: rotate(720deg); /* bleibt stehen → Pause */
+      }
+  }  
+
+  @keyframes float {
+    0% {
+        transform: translate(0px, 0px);
+      }
+      10% {
+        transform: translate(10px, -15px);
+      }
+      20% {
+        transform: translate(-5px, 18px);
+      }
+      30% {
+        transform: translate(15px, -8px);
+      }
+      40% {
+        transform: translate(-12px, 10px);
+      }
+      50% {
+        transform: translate(7px, -3px);
+      }
+      60% {
+        transform: translate(-20px, 5px);
+      }
+      70% {
+        transform: translate(18px, -12px);
+      }
+      80% {
+        transform: translate(-10px, -18px);
+      }
+      90% {
+        transform: translate(13px, 15px);
+      }
+      100% {
+        transform: translate(0px, 0px);
+      }
+      }
+  
+  

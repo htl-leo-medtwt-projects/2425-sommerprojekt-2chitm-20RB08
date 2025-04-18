@@ -22,15 +22,18 @@
 	<div class="reveal">
 		<div class="slides">
 			<!--greeting-->
-			<section data-auto-animate>
+			<section data-transition="zoom">
 				<h2 style="z-index: 1;">Welcome to Card Clash!</h2>
 				<p>A turn-based card game where strategy and timing are everything.</p>
-				<div class="plate" style="left: 30%; right: 150%;"><a href="#/grand-finale" style="color: black;">Skip
-						Tutorial</a></div>
-
+				<div class="plate" style="left: 30%; right: 150%;"><a href="#/grand-finale" style="color: black;">Skip Tutorial</a></div>
 			</section>
 
 			<!--how to play-->
+			<section data-auto-animate>
+				<h2>How to Play</h2>
+				<p>You start with a basic deck of cards.</p>
+				<p>Each turn, choose a card to power up your hero or weaken your enemy.</p>
+			</section>
 			<section data-auto-animate>
 				<h2>How to Play</h2>
 				<p>You start with a basic deck of cards.</p>
@@ -40,30 +43,39 @@
 
 			<!--leveling system-->
 			<section>
-				<h2>Leveling System</h2>
-				<p>Your hero can level up or down based on your performance.</p>
-				<p>Depending on whether you win or lose, you earn gold and either get to continue or have to restart a
-					level.</p>
+				<section>
+
+					<h2>Leveling System</h2>
+					<p>Your hero can level up or down based on your performance.</p>
+				</section>
+				<section>
+					<img src="../../img/pose.gif" alt="char" style="border-radius: 10px;">
+					<p>Depending on whether you win or lose, you earn gold and either get to continue or have to restart a
+						level.</p>
+				</section>
+				
 			</section>
 
 			<!--shop explaned-->
-			<section data-auto-animate>
+			<section data-transition="concave">
 				<h2>The Card Shop</h2>
 				<p>After each battle, you earn gold and can buy new cards in the shop.</p>
+				<img src="../../img/lootCards.png" alt="lootCards" style="width: 20vw; animation: spin 10s linear infinite">
 				<p>Choose wisely – you can only take a limited number into your deck.</p>
 			</section>
 
 			<!--eqipment-->
-			<section data-auto-animate>
+			<section>
 				<h2>Your Choices Matter</h2>
-				<p>Every battle, every card, and every choice shapes your journey.</p>
-				<p>Build your own deck and develop your unique playstyle.</p>
+				<p class="fragment  fade-out">Every battle, every card, and every choice shapes your journey.</p>
+				<img src="../../img/playersCards.png" alt="playersCards" style="width: 30vw; animation: float 15s ease-in-out infinite;">
+				<p class="fragment  fade-up">Build your own deck and develop your unique playstyle.</p>
 			  </section>
 
 			<!--end-->
-			<section>
+			<section id="grand-finale" data-transition="zoom">
 				<h2>Are you ready?</h2>
-				<p>Starte dein Abenteuer jetzt!</p>
+				<p>Start you andventure right now!</p>
 				<div class="scroll" style="left: 50%; top: 150%; position: absolute;"><a href="../navigation.html">Let's go</a></div>
 			</section>
 		</div>
@@ -79,7 +91,7 @@
 		// - https://revealjs.com/config/
 		Reveal.initialize({
 			hash: true,
-
+			autoAnimate: true,
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
 		});
