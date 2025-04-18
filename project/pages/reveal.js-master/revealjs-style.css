@@ -1,4 +1,36 @@
-h3 {
+/*********************
+* Style font
+**********************/
+h2 {
     font-family: Chalkboy !important;
     font-weight: lighter !important;
 }
+
+p{
+    font-family: FingerPaint !important;
+    margin: 0px;
+    font-size: 2vw;
+}
+
+/*************************
+* Logo
+*************************/
+.logo-start {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0.7;
+    width: 18vw !important;
+    z-index: -2;
+  }
+  
+  .logo-end {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    width: 18vw !important;
+    z-index: 1;
+  }
