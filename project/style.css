@@ -36,7 +36,9 @@ body {
     --black: #000;
     --blue: #8DC9DC;
     --red: #E73E3E;
-    --gold: #E0CA53;    
+    --gold: #E0CA53;
+    --standard-transition: all 0.15s;
+    --transform-centerPosition: translate(-50%, -50%);    
 }
 
 /****************************
@@ -58,7 +60,7 @@ body {
     position: absolute;
     width: 18vw !important;
     
-    transform: translate(-50%, -50%) scale(1);
+    transform: var(--transform-centerPosition) scale(1);
 }
 
 /****************************
@@ -83,7 +85,7 @@ body {
 
     position: absolute;
 
-    transform: translate(-50%, -50%) scale(1);
+    transform: var(--transform-centerPosition) scale(1);
     opacity: 0.8;
     transition: all 0.15s;
 }
@@ -98,10 +100,10 @@ body {
   }
 .scroll:hover{
     opacity: 1;
-   transform: translate(-50%, -50%) scale(1.1);
+   transform: var(--transform-centerPosition) scale(1.1);
 }
 .scroll:active{
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: var(--transform-centerPosition) scale(0.9);
 }
 
 /*** Scroll elements ***/
