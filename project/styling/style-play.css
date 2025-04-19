@@ -65,3 +65,96 @@
     bottom: 35%;
     transform: scale(1.5);
 }
+
+/****************************
+* gameField
+*****************************/
+#game-field{
+    width: 100%;
+    height: 100vh;
+
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+/***** glasBox *****/
+.glass-box {
+    background: rgba(0, 0, 0, 0.4); /* leicht dunkler Hintergrund */
+    backdrop-filter: blur(10px);    /* Hintergrund verschwommen */
+    -webkit-backdrop-filter: blur(10px); /* für Safari */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+/***** Battel Arena *****/
+#battle-arena{
+    background-image: url(../img/plate/areana.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 48vw;
+    height: 27vw;
+
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 60%;
+}
+
+/*===== Fighter =====*/
+.name{
+    font-family: Itckrist;
+    font-size: 3vw;
+}
+.live{
+    font-family: Fingerpaint;
+    font-size: 2.5vw;
+}
+.heart{
+    width: 2vw;
+}
+.char{
+    width: 10vw;
+}
+
+.name, .live, .char{
+    position: absolute;
+    bottom: 5%;
+    height: fit-content;
+}
+
+/*** Player ***/
+#player .name{
+    left: 20%;
+    top: 30%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+}
+#player .live{
+    left: 25%;
+    top: 48%;
+    transform: translate(-50%, -50%) rotate(-3deg);
+}
+#player .char{
+    left: 25%;
+    top: 75%;
+    transform: translate(-50%, -50%);
+}
+
+/*** Enemei ***/
+#enemie .name{
+    right: 2%;
+    top: 30%;
+    transform: translate(-50%, -50%) rotate(5deg);
+}
+#enemie .live{
+    right: 15%;
+    top: 48%;
+    transform: translate(-50%, -50%) rotate(3deg);
+}
+#enemie .char{
+    right: 5%;
+    top: 75%;
+    transform: translate(-50%, -50%);
+}
+
+/*===== Fighter =====*/
