@@ -108,7 +108,7 @@ function fight() {
     // Leben anpassen
     fighters.player.live -= playerDamage;
     fighters.player.live += playerCurrentCard.live;
-    fighters.enemie.live -= enemieDamage + enemieCurrentCard.live;
+    fighters.enemie.live -= enemieDamage;
     fighters.enemie.live += enemieCurrentCard.live;
 
     // Überprüfen, ob das Spiel vorbei ist
@@ -121,34 +121,40 @@ function fight() {
     createGamePOV();
 }
 function getDamage(attacker, defender) {
+    console.log('*******************');
+    
+    console.log("Angreifer:", attacker);
+    console.log("Verteidiger:", defender);
+
     let damage = 0;
 
-// Angriffs- und Magiewerte des Angreifers
-let attack = attacker.attack;
-let magie = attacker.magie;
+    // attacks
+    let attack = attacker.attack;
+    let magie = attacker.magie;
 
-// Verteidigungswerte des Verteidigers
-let attackBlock = defender.attackBlock;
-let magieBlock = defender.magieBlock;
-let universalBlock = defender.universalBlock;
+    // defens
+    let attackBlock = defender.attackBlock;
+    let magieBlock = defender.magieBlock;
+    let universalBlock = defender.universalBlock;
 
-console.log("attack:", attack);
-console.log("magie:", magie);
-console.log("attackBlock:", attackBlock);
-console.log("magieBlock:", magieBlock);
-console.log("universalBlock:", universalBlock);
+    console.log("attack:", attack);
+    console.log("magie:", magie);
+    console.log("attackBlock:", attackBlock);
+    console.log("magieBlock:", magieBlock);
+    console.log("universalBlock:", universalBlock);
 
-// Berechnung des Schadens durch Angriff und Magie
-let attackDamage = Math.max(0, attack - attackBlock);
-let magieDamage = Math.max(0, magie - magieBlock);
 
-// Anwendung des universalBlock auf den gesamten Schaden
-let totalDamage = Math.max(0, attackDamage + magieDamage - universalBlock);
+    // Damage
+    let attackDamage = Math.max(0, attack - attackBlock);
+    console.log(`Attack Damage: ${attackDamage}`);
+    
+    let magieDamage = Math.max(0, magie - magieBlock);
+    console.log(`Magie Damage: ${magieDamage}`);
 
-console.log('Damage: ' + totalDamage);
+    damage = Math.max(0, attackDamage + magieDamage - universalBlock)
+    console.log('Total Damage: ' + damage);
 
-return totalDamage;
-
+    return damage;
 }
 function gameOver() {
 
