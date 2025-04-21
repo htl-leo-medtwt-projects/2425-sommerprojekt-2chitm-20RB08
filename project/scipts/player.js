@@ -6,6 +6,7 @@ class Player {
         this.name = name;
         this.health = 5;
         this.gold = 100;
+        this.img = '../img/charakter/player.png'
 
         // Random Startdeck
         this.startDeck = startdeck[Math.floor(Math.random() * startdeck.length)];

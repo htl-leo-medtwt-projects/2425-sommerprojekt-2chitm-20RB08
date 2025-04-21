@@ -41,7 +41,7 @@ const youTryinSomething = new Card("You tryin' something?", 0, 0, 2, 0, 0, 0, ".
 const getOuttaHere = new Card("Get outta here", 0, 0, 2, 0, 0, 0, "../img/heroCard/Get_Outta_Here.webp");
 const howDoYouLikeThis = new Card("How do you like this?", 1, 0, 1, 0, 0, 0, "../img/heroCard/How_Do_You_Like_This.webp");
 const niceTryChump = new Card("Nice try, chump", 1, 0, 1, 0, 0, 0, "../img/heroCard/Nice_Try_Chump.webp");
-const fireShield = new Card("Fire shield", 0, 1, 0, 1, 0, 0, "../img/heroCard/Fire_Shield.wedp");
+const fireShield = new Card("Fire shield", 0, 1, 0, 1, 0, 0, "../img/heroCard/Fire_Shield.webp");
 
 const allHeroCards = [
   bash, counter, cower, demolish,
@@ -61,11 +61,11 @@ const startdeck = [
  * Enemie Card
  **********************/
 // Albino Goblin
-const anger = new Card("Anger", 1, 0, 0, 0, 0, 0, "../img/enemyCard/anger.webp");
-const lunge = new Card("Lunge", 2, 0, 0, 0, 0, 0, "../img/enemyCard/lunge.webp"); // Spezialeffekt evtl. extra behandeln
-const pain = new Card("Pain", 0, 2, 0, 0, 0, 0, "../img/enemyCard/pain.webp");
-const thrash = new Card("Thrash", 3, 0, 0, 0, 0, -1, "../img/enemyCard/thrash.webp");
-const torment = new Card("Torment", 0, 3, 0, 0, 0, -1, "../img/enemyCard/torment.webp");
+const anger = new Card("Anger", 1, 0, 0, 0, 0, 0, "../img/enemieCard/anger.webp");
+const lunge = new Card("Lunge", 2, 0, 0, 0, 0, 0, "../img/enemieCard/lunge.webp"); // Spezialeffekt evtl. extra behandeln
+const pain = new Card("Pain", 0, 2, 0, 0, 0, 0, "../img/enemieCard/pain.webp");
+const thrash = new Card("Thrash", 3, 0, 0, 0, 0, -1, "../img/enemieCard/thrash.webp");
+const torment = new Card("Torment", 0, 3, 0, 0, 0, -1, "../img/enemieCard/torment.webp");
 const albinoGoblinDeck = [
   anger, anger,
   lunge, lunge,
