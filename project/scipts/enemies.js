@@ -12,3 +12,6 @@ class enemie{
 
 // Albino Goblin
 const goblin = new enemie("Albino Goblin", albinoGoblinDeck, 8, '../img/charakter/goblin.png')
+
+
+const ENEMIES = [goblin];

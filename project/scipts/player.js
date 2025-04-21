@@ -2,13 +2,13 @@
  * New Player
  **************************/
 class Player {
-    constructor(name = 'Held', startDecks = []) {
+    constructor(name = 'Held') {
         this.name = name;
         this.health = 5;
         this.gold = 100;
 
         // Random Startdeck
-        this.startDeck = startDecks[Math.floor(Math.random() * startDecks.length)];
+        this.startDeck = startdeck[Math.floor(Math.random() * startdeck.length)];
 
         // Alle Karten (wird später zusammengesetzt)
         this.deck = [];
@@ -29,50 +29,44 @@ class Player {
 
     getAllCard() {
         this.deck = [];
-
+    
         // Startdeck
-        if (this.startDeck) this.deck.push(this.startDeck);
-
+        if (this.startDeck) this.deck.push(...this.startDeck);
+    
         // Ausgerüstete Loots
-        if (this.weapon) this.deck.push(this.weapon.deck);
-        if (this.armor) this.deck.push(this.armor.deck);
-        if (this.skil) this.deck.push(this.skil.deck);
+        if (this.weapon) this.deck.push(...this.weapon.deck);
+        if (this.armor) this.deck.push(...this.armor.deck);
+        if (this.skil) this.deck.push(...this.skil.deck);
+    
+        return this.deck;
     }
+    
 
     getAllOwnedLoots() {
         return [this.weaponArr, this.armorArr, this.skilArr];
     }
-}
-class Fighter {
-    constructor(name, startDeck, isHero = true) {
-        this.name = name;
-        this.maxLife = 4;
-        this.life = this.maxLife;
 
-        // Gold
-        this.gold = 0;
+    getCurrentLive(){
+        let live = 5;
 
-        // Slot
-        this.weapon;
-        this.armor;
-        this.skill;
-
-        // deck
-        this.startDeck = startDeck;
-
-    }
-
-    getAllCard() {
-        deck = [];
-        this.deck.push(this.startDeck);
-        this.deck.push(this.weapon)
+        let allLoot = this.getAllOwnedLoots();
+        for (let i = 0; i < allLoot.length; i++){
+            if (allLoot[i] != null){
+                live += allLoot[i].extraLife;
+            }
+        }
+        
+        this.health = live;
+        return live;
     }
 }
 
 /***********************
  * Get or create Player
  **********************/
-let player = JSON.parse(localStorage['CC_player'] ?? JSON.stringify(new Player()));
+let playerData = JSON.parse(localStorage['CC_player'] ?? '{}');
+let player = Object.assign(new Player(), playerData);
+
 
 localStorage['CC_player'] = JSON.stringify(player);
 

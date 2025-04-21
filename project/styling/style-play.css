@@ -249,7 +249,7 @@
 }
 
 #enemie-layedDownCards {
-    right: 20%;
+    right: 10%;
     bottom: 25%;
-    transform: rotate(5deg) scaleX(-1);
+    transform: rotate(5deg);
 }

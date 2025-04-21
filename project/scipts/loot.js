@@ -2,12 +2,13 @@
  * Loot Class
  ***********************/
 class Loot{
-    constructor(name, label, deck, price, img){
+    constructor(name, label, deck, price, img, extraLife = 0){
         this.name = name;
         this.label = label
         this.deck = deck;
         this.price = price
         this.img = img
+        this.extraLife = extraLife
     }
 }
 
