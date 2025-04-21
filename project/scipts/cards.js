@@ -56,3 +56,21 @@ const startdeck = [
   [oi, oi, youTryinSomething, getOuttaHere, getOuttaHere, niceTryChump],
   [fireShield, fireShield, niceTryChump, niceTryChump, rekindle, smite, uhh]
 ]
+
+/**********************
+ * Enemie Card
+ **********************/
+// Albino Goblin
+const anger = new Card("Anger", 1, 0, 0, 0, 0, 0, "../img/enemyCard/anger.webp");
+const lunge = new Card("Lunge", 2, 0, 0, 0, 0, 0, "../img/enemyCard/lunge.webp"); // Spezialeffekt evtl. extra behandeln
+const pain = new Card("Pain", 0, 2, 0, 0, 0, 0, "../img/enemyCard/pain.webp");
+const thrash = new Card("Thrash", 3, 0, 0, 0, 0, -1, "../img/enemyCard/thrash.webp");
+const torment = new Card("Torment", 0, 3, 0, 0, 0, -1, "../img/enemyCard/torment.webp");
+const albinoGoblinDeck = [
+  anger, anger,
+  lunge, lunge,
+  pain,
+  thrash,
+  torment
+];
+
