@@ -77,6 +77,18 @@ function nextRound() {
     fighters.enemie.currentCard = drawnCard;
     fighters.enemie.layedDownCards.push(drawnCard)
     fighters.enemie.deck.splice(pos, 1);
+    // wenn deck vom enemie leer ist, werden die layedDownCards zurück ins deck gemischt
+    if(fighters.enemie.deck.length == 0) {
+        // alle layedDownCards zurück ins deck  
+        for (let i = 0; i < fighters.enemie.layedDownCards.length; i++){
+            fighters.enemie.deck.push(fighters.enemie.layedDownCards[i]);
+        }
+        // layedDownCards leeren
+        fighters.enemie.layedDownCards = [];
+
+        createLayedDownCard();
+    }
+    console.log(`***Gegner zieht '${drawnCard.name}'***`);
 
     createLayedDownCard();
 }
@@ -115,11 +127,18 @@ function fight() {
     if (fighters.player.live <= 0 || fighters.enemie.live <= 0) {
         gameOver();
     } else {
-        nextRound();
+        
     }
+    // Gehört eingenlich in die else
+    // Gegner zieht eine Karte
+    playerDrawnCard();
+    // nächste Runde
+    nextRound();
 
     createGamePOV();
 }
+
+// calculate damage
 function getDamage(attacker, defender) {
     console.log('*******************');
     
@@ -156,6 +175,35 @@ function getDamage(attacker, defender) {
 
     return damage;
 }
+
+function playerDrawnCard() {
+    // random karte ziehen
+    let size = fighters.player.deck.length;
+    let pos = getRandomNum(size)
+    let drawnCard = fighters.player.deck[pos];
+    // zur hand hinzufügen und vom deck entfernen
+    fighters.player.hand.push(drawnCard);
+    fighters.player.deck.splice(pos, 1);
+    console.log(`***Spieler zieht '${drawnCard.name}'***`);
+
+    // wenn keine karten mehr im deck sind werden die layedDownCards zurück ins deck gemischt
+    if(fighters.player.deck.length == 0){
+        // alle layedDownCards zurück ins deck
+        for (let i = 0; i < fighters.player.layedDownCards.length; i++){
+            fighters.player.deck.push(fighters.player.layedDownCards[i]);
+        }
+        // layedDownCards leeren   
+        fighters.player.layedDownCards = [];
+
+        createLayedDownCard();
+    }
+
+    createGamePOV();
+}
+
+/******************
+ * Game Over
+ *****************/
 function gameOver() {
 
 }
