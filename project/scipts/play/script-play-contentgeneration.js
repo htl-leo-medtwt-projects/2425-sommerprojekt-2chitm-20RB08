@@ -119,4 +119,9 @@ function doAnimation(idName, animationName, duration, movement){
     document.getElementById(idName).style.animation = 'none';
     document.getElementById(idName).offsetHeight; 
     document.getElementById(idName).style.animation = `${animationName} ${duration}s ${movement}`;
+
+    setTimeout(()=>{
+        document.getElementById(idName).style.animation = 'none';
+    document.getElementById(idName).offsetHeight; 
+    }, duration * 1000)
 }
