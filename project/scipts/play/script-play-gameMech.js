@@ -85,14 +85,14 @@ function enemieDrawnCard() {
 
     // Animation Karte ziehen
     setTimeout(() => {
-        doAnimation('enemie-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
+        doAnimation('#enemie-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
     }, 50);
 
     // Karte in layedDownCards geben
     setTimeout(() => {
         createLayedDownCard();
         createFightersDecks();
-        doAnimation('enemie-topLayedDownCard', 'placeInLayedDownCard', 1, 'ease-in-out');
+        doAnimation('#enemie-topLayedDownCard', 'placeInLayedDownCard', 1, 'ease-in-out');
     }, 1000);
 }
 
@@ -110,19 +110,33 @@ function fight() {
     fighters.enemie.live -= enemieDamage;
     fighters.enemie.live += enemieCurrentCard.live;
 
+    // Animation
+    setTimeout(() => {
+        // animation
+        doAnimation('#player .char', 'playerAttack', 2, 'ease-in-out');
+        doAnimation('#enemie .char', 'enemieAttack', 2, 'ease-in-out');
+
+        // neues leben anzeigen
+        setTimeout(() => {
+            document.querySelector('#player .live').innerHTML = `${fighters.player.live}<img src="../img/heart.png" alt="heart" class="heart">`;
+            document.querySelector('#enemie .live').innerHTML = `${fighters.enemie.live}<img src="../img/heart.png" alt="heart" class="heart">`;
+        }, 1000)
+    }, 1000)
     // Überprüfen, ob das Spiel vorbei ist
     if (fighters.player.live <= 0 || fighters.enemie.live <= 0) {
         gameOver();
     } else {
+        setTimeout(() => {
+            // Gegner zieht eine Karte
+            playerDrawnCard();
+            // gegner zieht nächste karte
+            setTimeout(() => {
+                enemieDrawnCard();
+            }, 3000)
+        }, 2000)
 
     }
-    // Gehört eingenlich in die else
-    // Gegner zieht eine Karte
-    playerDrawnCard();
-    // gegner zieht nächste karte
-    enemieDrawnCard();
 
-    createGamePOV();
 }
 
 // calculate damage
@@ -167,7 +181,7 @@ function getDamage(attacker, defender) {
 // player attack
 function playerAttack(playerHandPos) {
     // Animation starten, bevor die Karte entfernt wird
-    doAnimation(`playerhand${playerHandPos}`, 'takeACardFromTheDeck', 1, 'ease-in-out');
+    doAnimation(`#playerhand${playerHandPos}`, 'takeACardFromTheDeck', 1, 'ease-in-out');
 
     // Karte auswählen und verschieben
     setTimeout(() => {
@@ -179,7 +193,7 @@ function playerAttack(playerHandPos) {
         // Ansicht aktualisieren
         createGamePOV();
         createLayedDownCard();
-        doAnimation('player-topLayedDownCard', 'placeInLayedDownCard', 1, 'ease-in-out');
+        doAnimation('#player-topLayedDownCard', 'placeInLayedDownCard', 1, 'ease-in-out');
         // Kampf starten
         fight();
     }, 1000);
@@ -197,7 +211,7 @@ function playerDrawnCard() {
 
     // Animation Karte ziehen
     setTimeout(() => {
-        doAnimation('player-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
+        doAnimation('#player-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
         // Zufällige Karte ziehen
         const pos = getRandomNum(fighters.player.deck.length);
         const drawnCard = fighters.player.deck.splice(pos, 1)[0]; // Karte entfernen und direkt speichern
@@ -211,13 +225,9 @@ function playerDrawnCard() {
     setTimeout(() => {
         createFightersDecks();
         getPlayerHand();
-        doAnimation('playerhand2', 'takeACardFromTheDeck', 1, 'ease-in-out reverse');
+        doAnimation('#playerhand2', 'takeACardFromTheDeck', 1, 'ease-in-out reverse');
     }, 1000);
 
-
-
-    // Ansicht aktualisieren
-    createGamePOV();
 }
 
 /******************

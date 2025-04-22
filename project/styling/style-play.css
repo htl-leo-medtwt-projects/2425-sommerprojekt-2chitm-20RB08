@@ -257,14 +257,26 @@
 /***********************
  * Animation
  ***********************/
+ /***** Karten Animationen ****/
  @keyframes takeACardFromTheDeck {
     from{transform: translateY(0%);}
     to{transform: translateY(-200%);}
- }
- @keyframes placeInHand {
-    
  }
  @keyframes placeInLayedDownCard {
     from{transform: translateY(250%);}
     to{transform: translateY(0%);}
  }
+
+/***** Char animationen *****/
+@keyframes playerAttack {
+    0%{transform: translateX(0%) rotate(-5deg) var(--transform-centerPosition);}
+    35%{transform: translateX(75%) rotate(5deg) var(--transform-centerPosition);;}
+    75%{transform: translateX(25%) rotate(0deg) var(--transform-centerPosition);;}
+    100%{transform: translateX(0%) var(--transform-centerPosition);;}
+}
+@keyframes enemieAttack {
+    0%{transform: translateX(0%) rotate(5deg) var(--transform-centerPosition);}
+    35%{transform: translateX(-75%) rotate(-5deg) var(--transform-centerPosition);;}
+    75%{transform: translateX(-25%) rotate(0deg) var(--transform-centerPosition);;}
+    100%{transform: translateX(0%) var(--transform-centerPosition);;}
+}

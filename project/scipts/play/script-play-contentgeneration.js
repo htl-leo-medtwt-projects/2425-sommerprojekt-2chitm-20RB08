@@ -31,7 +31,7 @@ function createGamePOV() {
 // ===== Player & enemie =====
 function createFightersStats() {
     console.log('Fighters Stats are created!');
-    
+
     // ===== player =====
     document.getElementById('player').innerHTML = `
         <div class="name">${fighters.player.name}</div>
@@ -47,7 +47,7 @@ function createFightersStats() {
 }
 
 function createFightersDecks() {
-    console.log('Fighters Decks are created!');  
+    console.log('Fighters Decks are created!');
 
     // players deck
     let s = '';
@@ -72,7 +72,7 @@ function createFightersDecks() {
     document.getElementById('enemie-deck').innerHTML = s;
 }
 
-function getPlayerHand(){
+function getPlayerHand() {
     console.log('Player hand is created!');
     //player hand
     let s = '';
@@ -115,13 +115,13 @@ function createLayedDownCard() {
 /********************
  * Animation
  * *******************/
-function doAnimation(idName, animationName, duration, movement){
-    document.getElementById(idName).style.animation = 'none';
-    document.getElementById(idName).offsetHeight; 
-    document.getElementById(idName).style.animation = `${animationName} ${duration}s ${movement}`;
+function doAnimation(idName, animationName, duration, movement) {
+    document.querySelector(idName).style.animation = 'none';
+    document.querySelector(idName).offsetHeight;
+    document.querySelector(idName).style.animation = `${animationName} ${duration}s ${movement}`;
 
-    setTimeout(()=>{
-        document.getElementById(idName).style.animation = 'none';
-    document.getElementById(idName).offsetHeight; 
+    setTimeout(() => {
+        document.querySelector(idName).style.animation = 'none';
+        document.querySelector(idName).offsetHeight;
     }, duration * 1000)
 }
