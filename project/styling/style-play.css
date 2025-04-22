@@ -253,3 +253,18 @@
     bottom: 25%;
     transform: rotate(5deg);
 }
+
+/***********************
+ * Animation
+ ***********************/
+ @keyframes takeACardFromTheDeck {
+    from{transform: translateY(0%);}
+    to{transform: translateY(-200%);}
+ }
+ @keyframes placeInHand {
+    
+ }
+ @keyframes placeInLayedDownCard {
+    from{transform: translateY(250%);}
+    to{transform: translateY(0%);}
+ }

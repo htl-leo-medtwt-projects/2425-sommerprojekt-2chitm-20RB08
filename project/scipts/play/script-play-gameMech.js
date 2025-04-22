@@ -56,7 +56,7 @@ function newGame(enemiePos) {
 
     createGamePOV();
     // go to the next round
-    nextRound();
+    enemieDrawnCard();
 }
 newGame(0)
 
@@ -67,32 +67,36 @@ function getRandomNum(size) {
 /**********************
  * Game logik
  ********************/
-function nextRound() {
-    // === enemie zieht random karte ===
-    // random karte ziehen
+// enemie draws a card
+function enemieDrawnCard() {
+    // Gegner zieht eine Karte
     let size = fighters.enemie.deck.length;
-    let pos = getRandomNum(size)
+    let pos = getRandomNum(size);
     let drawnCard = fighters.enemie.deck[pos];
-    // zur hand hinzufügen und vom deck entfernen
-    fighters.enemie.currentCard = drawnCard;
-    fighters.enemie.layedDownCards.push(drawnCard)
-    fighters.enemie.deck.splice(pos, 1);
-    // wenn deck vom enemie leer ist, werden die layedDownCards zurück ins deck gemischt
-    if(fighters.enemie.deck.length == 0) {
-        // alle layedDownCards zurück ins deck  
-        for (let i = 0; i < fighters.enemie.layedDownCards.length; i++){
-            fighters.enemie.deck.push(fighters.enemie.layedDownCards[i]);
-        }
-        // layedDownCards leeren
-        fighters.enemie.layedDownCards = [];
 
-        createLayedDownCard();
-    }
+    fighters.enemie.currentCard = drawnCard;
+    fighters.enemie.layedDownCards.push(drawnCard);
+    fighters.enemie.deck.splice(pos, 1);
+    console.log(`***Gegner zieht '${drawnCard.name}'***`);
+    // Wenn das deck leer ist
+
+
     console.log(`***Gegner zieht '${drawnCard.name}'***`);
 
-    createLayedDownCard();
+    // Animation Karte ziehen
+    setTimeout(() => {
+        doAnimation('enemie-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
+    }, 50);
+
+    // Karte in layedDownCards geben
+    setTimeout(() => {
+        createLayedDownCard();
+        createFightersDecks();
+        doAnimation('enemie-topLayedDownCard', 'placeInLayedDownCard', 1, 'ease-in-out');
+    }, 1000);
 }
 
+// player attack
 function playerAttack(playerHandPos) {
     // gettig chosen card
     fighters.player.currentCard = fighters.player.hand[playerHandPos]
@@ -132,8 +136,8 @@ function fight() {
     // Gehört eingenlich in die else
     // Gegner zieht eine Karte
     playerDrawnCard();
-    // nächste Runde
-    nextRound();
+    // gegner zieht nächste karte
+    enemieDrawnCard();
 
     createGamePOV();
 }
