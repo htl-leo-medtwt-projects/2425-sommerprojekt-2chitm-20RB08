@@ -280,3 +280,4 @@
     75%{transform: translateX(-25%) rotate(0deg) var(--transform-centerPosition);;}
     100%{transform: translateX(0%) var(--transform-centerPosition);;}
 }
+

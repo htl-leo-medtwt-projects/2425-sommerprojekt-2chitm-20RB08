@@ -69,41 +69,57 @@ function getRandomNum(size) {
  ********************/
 // enemie draws a card
 function enemieDrawnCard() {
+    // Leeres Deck
+    let timeWait = 0;
     if (fighters.enemie.deck.length === 0) {
         // Deck auffüllen, wenn es leer ist
         fighters.enemie.deck = [...fighters.enemie.layedDownCards];
         fighters.enemie.layedDownCards = [];
-        createLayedDownCard();
+
+        // animation
+        doAnimation('#enemie-layedDownCards', 'placeInLayedDownCard', 1, 'reverse')
+        setTimeout(() => {
+            createLayedDownCard();
+        }, 1000)
 
         // Karten deck kreaieren
-        createFightersDecks();
-    } 
+        setTimeout(() => {
+            doAnimation('#enemi-deck', 'takeACardFromTheDeck', 1, 'reverse')
+            createFightersDecks();
+        }, 900)
 
-    // Gegner zieht eine Karte
-    let size = fighters.enemie.deck.length;
-    let pos = getRandomNum(size);
-    let drawnCard = fighters.enemie.deck[pos];
+        timeWait = 2000;
+    }
 
-    fighters.enemie.currentCard = drawnCard;
-    fighters.enemie.layedDownCards.push(drawnCard);
-    fighters.enemie.deck.splice(pos, 1);
-    console.log(`***Gegner zieht '${drawnCard.name}'***`);
-    // Wenn das deck leer ist
-
-
-    console.log(`***Gegner zieht '${drawnCard.name}'***`);
-
-    // Animation Karte ziehen
+    // Karte ziehen
     setTimeout(() => {
-        doAnimation('#enemie-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
-    }, 50);
+        // Gegner zieht eine Karte
+        let size = fighters.enemie.deck.length;
+        let pos = getRandomNum(size);
+        let drawnCard = fighters.enemie.deck[pos];
 
-    // Karte in layedDownCards geben
-    setTimeout(() => {
-        createLayedDownCard();
-        createFightersDecks();
-        doAnimation('#enemie-topLayedDownCard', 'placeInLayedDownCard', 1, 'ease-in-out');
-    }, 1000);
+        fighters.enemie.currentCard = drawnCard;
+        fighters.enemie.layedDownCards.push(drawnCard);
+        fighters.enemie.deck.splice(pos, 1);
+        console.log(`***Gegner zieht '${drawnCard.name}'***`);
+        // Wenn das deck leer ist
+
+
+        console.log(`***Gegner zieht '${drawnCard.name}'***`);
+
+        // Animation Karte ziehen
+        setTimeout(() => {
+            doAnimation('#enemie-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
+        }, 50);
+
+        // Karte in layedDownCards geben
+        setTimeout(() => {
+            createLayedDownCard();
+            createFightersDecks();
+            doAnimation('#enemie-topLayedDownCard', 'placeInLayedDownCard', 1, 'ease-in-out');
+        }, 1000);
+    }, timeWait)
+
 }
 
 // fights
@@ -137,6 +153,14 @@ function fight() {
         gameOver();
     } else {
     }
+
+    let timeWait = 2000;
+    if (fighters.player.deck.length == 0) {
+        timeWait += 2000;
+    }
+    if (fighters.enemie.deck.length == 0) {
+        timeWait += 2000;
+    }
     setTimeout(() => {
         // spieler zieht eine Karte
         playerDrawnCard();
@@ -144,7 +168,7 @@ function fight() {
         setTimeout(() => {
             enemieDrawnCard();
         }, 3000)
-    }, 2000)
+    }, timeWait)
 }
 
 // calculate damage
@@ -210,18 +234,31 @@ function playerAttack(playerHandPos) {
 }
 // palyer Drwan card
 function playerDrawnCard() {
+    // *** Wenn deck leer ist ***
+    let timeWait = 0;
     if (fighters.player.deck.length === 0) {
         // Deck auffüllen, wenn es leer ist
         fighters.player.deck = [...fighters.player.layedDownCards];
         fighters.player.layedDownCards = [];
-        createLayedDownCard();
+
+        // animation
+        doAnimation('#player-layedDownCards', 'placeInLayedDownCard', 1, 'reverse')
+        setTimeout(() => {
+            createLayedDownCard();
+        }, 1000)
 
         // Karten deck kreaieren
-        createFightersDecks();
-    } 
+        setTimeout(() => {
+            doAnimation('#player-deck', 'takeACardFromTheDeck', 1, 'reverse')
+            createFightersDecks();
+        }, 900)
 
+        timeWait = 2000;
+    }
+
+    // *** Karte ziehen ****
+    setTimeout(() => {
         // Animation Karte ziehen
-        
         setTimeout(() => {
             doAnimation('#player-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
             // Zufällige Karte ziehen
@@ -239,7 +276,7 @@ function playerDrawnCard() {
             getPlayerHand();
             doAnimation('#playerhand2', 'takeACardFromTheDeck', 1, 'ease-in-out reverse');
         }, 1000)
-
+    }, timeWait)
 }
 
 /******************

@@ -116,12 +116,15 @@ function createLayedDownCard() {
  * Animation
  * *******************/
 function doAnimation(idName, animationName, duration, movement) {
-    document.querySelector(`${idName}`).style.animation = 'none';
-    document.querySelector(`${idName}`).offsetHeight;
-    document.querySelector(`${idName}`).style.animation = `${animationName} ${duration}s ${movement}`;
 
-    setTimeout(() => {
+    if (document.querySelector(idName) != null) {
         document.querySelector(`${idName}`).style.animation = 'none';
         document.querySelector(`${idName}`).offsetHeight;
-    }, duration * 1000)
+        document.querySelector(`${idName}`).style.animation = `${animationName} ${duration}s ${movement}`;
+
+        setTimeout(() => {
+            document.querySelector(`${idName}`).style.animation = 'none';
+            document.querySelector(`${idName}`).offsetHeight;
+        }, duration * 1000)
+    }
 }
