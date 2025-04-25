@@ -69,6 +69,16 @@ function getRandomNum(size) {
  ********************/
 // enemie draws a card
 function enemieDrawnCard() {
+    if (fighters.enemie.deck.length === 0) {
+        // Deck auffüllen, wenn es leer ist
+        fighters.enemie.deck = [...fighters.enemie.layedDownCards];
+        fighters.enemie.layedDownCards = [];
+        createLayedDownCard();
+
+        // Karten deck kreaieren
+        createFightersDecks();
+    } 
+
     // Gegner zieht eine Karte
     let size = fighters.enemie.deck.length;
     let pos = getRandomNum(size);
@@ -126,17 +136,15 @@ function fight() {
     if (fighters.player.live <= 0 || fighters.enemie.live <= 0) {
         gameOver();
     } else {
-        setTimeout(() => {
-            // Gegner zieht eine Karte
-            playerDrawnCard();
-            // gegner zieht nächste karte
-            setTimeout(() => {
-                enemieDrawnCard();
-            }, 3000)
-        }, 2000)
-
     }
-
+    setTimeout(() => {
+        // spieler zieht eine Karte
+        playerDrawnCard();
+        // gegner zieht nächste karte
+        setTimeout(() => {
+            enemieDrawnCard();
+        }, 3000)
+    }, 2000)
 }
 
 // calculate damage
@@ -207,26 +215,30 @@ function playerDrawnCard() {
         fighters.player.deck = [...fighters.player.layedDownCards];
         fighters.player.layedDownCards = [];
         createLayedDownCard();
-    }
 
-    // Animation Karte ziehen
-    setTimeout(() => {
-        doAnimation('#player-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
-        // Zufällige Karte ziehen
-        const pos = getRandomNum(fighters.player.deck.length);
-        const drawnCard = fighters.player.deck.splice(pos, 1)[0]; // Karte entfernen und direkt speichern
-
-        // Karte zur Hand hinzufügen
-        fighters.player.hand.push(drawnCard);
-        console.log(`***Spieler zieht '${drawnCard.name}'***`);
-    }, 50);
-
-    // Karte in hand geben
-    setTimeout(() => {
+        // Karten deck kreaieren
         createFightersDecks();
-        getPlayerHand();
-        doAnimation('#playerhand2', 'takeACardFromTheDeck', 1, 'ease-in-out reverse');
-    }, 1000);
+    } 
+
+        // Animation Karte ziehen
+        
+        setTimeout(() => {
+            doAnimation('#player-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
+            // Zufällige Karte ziehen
+            const pos = getRandomNum(fighters.player.deck.length);
+            const drawnCard = fighters.player.deck.splice(pos, 1)[0]; // Karte entfernen und direkt speichern
+
+            // Karte zur Hand hinzufügen
+            fighters.player.hand.push(drawnCard);
+            console.log(`***Spieler zieht '${drawnCard.name}'***`);
+        }, 50);
+
+        // Karte in hand geben
+        setTimeout(() => {
+            createFightersDecks();
+            getPlayerHand();
+            doAnimation('#playerhand2', 'takeACardFromTheDeck', 1, 'ease-in-out reverse');
+        }, 1000)
 
 }
 

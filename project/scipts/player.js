@@ -9,7 +9,7 @@ class Player {
         this.img = '../img/charakter/player.png'
 
         // Random Startdeck
-        this.startDeck = startdeck[Math.floor(Math.random() * startdeck.length)];
+        this.startDeck = startdeck[0];
 
         // Alle Karten (wird später zusammengesetzt)
         this.deck = [];
