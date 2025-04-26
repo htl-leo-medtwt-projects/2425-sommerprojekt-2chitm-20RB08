@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +17,13 @@
     <script src="../scipts/enemies.js" defer></script>
     <script src="../scipts/play/script-play-gameMech.js" defer></script>
 </head>
+
 <body>
     <!--USER POV-->
     <div id="userView">
         <!--dungeons-->
         <div id="caveBox"></div>
-        
+
 
         <!--Scroll-->
         <div class="scroll">
@@ -50,7 +52,7 @@
                     <div class="live">2x<img src="../img/heart.png" alt="heart" class="heart"></div>
                     <img src="../img/charakter/player.png" alt="playerBanew" class="char">
                 </div>
-                
+
                 <!--enemie-->
                 <div id="enemie">
                     <div class="name">Enemie</div>
@@ -69,7 +71,14 @@
             <!--enemie layed down cards-->
             <div id="enemie-layedDownCards" class="deck"></div>
         </div>
+
+        <!--Win Lose Screen-->
+        <div id="winLose">
+            <div class="scroll"><a href="navigation.html">Go Back</a></div>
+            <div class="plate" id="earnedGold"><span><span class="losedGold">329084</span><small>Gold</small></span></div>
+        </div>
     </div>
-    
+
 </body>
+
 </html>

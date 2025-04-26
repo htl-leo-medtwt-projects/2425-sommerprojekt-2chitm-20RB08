@@ -259,6 +259,46 @@
     transform: rotate(5deg);
 }
 
+/*****************
+* winn lose
+*****************/
+#winLose {
+    width: 100%;
+    height: 100vh;
+    z-index: 3;
+
+    position: absolute;
+    top: -100%;
+    left: 0%;
+
+    background-image: url(../img/youWinImg.png);
+    background-size: cover;
+    background-position: center;
+
+    backdrop-filter: blur(10px);
+    /* Hintergrund verschwommen */
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/*** Plates ***/
+#winLose .scroll{
+    left: 50%;
+    top:  85%;
+}
+
+#winLose .plate {
+    transform: var(--transform-centerPosition) scale(0.7);
+    left: 50%;
+    top: 75%;
+}
+
+/* colors */
+.winnedGold{
+    color: var(--gold);
+}
+.losedGold{
+    color: var(--red);
+}
 /***********************
  * Animation
  ***********************/
@@ -285,4 +325,8 @@
     75%{transform: translateX(-25%) rotate(0deg) var(--transform-centerPosition);;}
     100%{transform: translateX(0%) var(--transform-centerPosition);;}
 }
-
+/****** Win Lose Animation *****/
+@keyframes appearFromTop {
+    from{top: -100%}
+    to{top: 0%}
+}

@@ -39,6 +39,8 @@ function newGame(enemiePos) {
             live: ENEMIES[enemiePos].live,
             layedDownCards: [],
             currentCard: null,
+            beatenGold: ENEMIES[enemiePos].beatenGold,
+            stealGold: ENEMIES[enemiePos].stealGold,
         }
     }
 
@@ -122,7 +124,7 @@ function enemieDrawnCard() {
             doAnimation('#enemie-topLayedDownCard', 'placeInLayedDownCard', 1, 'ease-in-out');
 
             // freigebung einer karte ziehen
-            setTimeout(()=>{
+            setTimeout(() => {
                 document.getElementById('player-handBlock').style.top = '-1000%'
             }, 1000)
         }, 1000);
@@ -157,26 +159,27 @@ function fight() {
         }, 1000)
     }, 1000)
     // Überprüfen, ob das Spiel vorbei ist
-    if (fighters.player.live <= 0 || fighters.enemie.live <= 0) {
-        gameOver();
-    } else {
-    }
-
-    let timeWait = 2000;
-    if (fighters.player.deck.length == 0) {
-        timeWait += 2000;
-    }
-    if (fighters.enemie.deck.length == 0) {
-        timeWait += 2000;
-    }
-    setTimeout(() => {
-        // spieler zieht eine Karte
-        playerDrawnCard();
-        // gegner zieht nächste karte
-        setTimeout(() => {
-            enemieDrawnCard();
-        }, 3000)
-    }, timeWait)
+    setTimeout(()=>{
+        if (fighters.player.live <= 0 || fighters.enemie.live <= 0) {
+            gameOver();
+        } else {
+            let timeWait = 0;
+            if (fighters.player.deck.length == 0) {
+                timeWait += 2000;
+            }
+            if (fighters.enemie.deck.length == 0) {
+                timeWait += 2000;
+            }
+            setTimeout(() => {
+                // spieler zieht eine Karte
+                playerDrawnCard();
+                // gegner zieht nächste karte
+                setTimeout(() => {
+                    enemieDrawnCard();
+                }, 3000)
+            }, timeWait)
+        }
+    }, 2000)
 }
 
 // calculate damage
@@ -225,7 +228,7 @@ function playerAttack(playerHandPos) {
 
     // keine karten mehr auswälne
     // freigebung eine karte ziehen
-        document.getElementById('player-handBlock').style.top = '20%'
+    document.getElementById('player-handBlock').style.top = '20%'
 
     // Karte auswählen und verschieben
     setTimeout(() => {
@@ -295,5 +298,27 @@ function playerDrawnCard() {
  * Game Over
  *****************/
 function gameOver() {
+    // Verloren
+    if (fighters.player.live <= 0) {
+        let stealGold = fighters.enemie.stealGold
+        document.getElementById('winLose').style.backgroundImage = 'url(../img/youLoseImg.png)';
+        document.getElementById('winLose').offsetHeight;
+        document.getElementById('earnedGold').innerHTML = `<span>-<span class="losedGold">${stealGold}</span><small>Gold</small></span>`
 
+        // gold abziehen
+        player.gold -= (player.gold - stealGold < 0) ? 0 : player.gold - stealGold;
+    } else { // gewonnen
+        document.getElementById('winLose').style.backgroundImage = 'url(../img/youWinImg.png)';
+        document.getElementById('winLose').offsetHeight;
+        document.getElementById('earnedGold').innerHTML = `<span><span class="winnedGold">${fighters.enemie.beatenGold}</span><small>Gold</small></span>`
+
+        // gold hinzufügen
+        player.gold += fighters.enemie.beatenGold;
+    }
+
+    // Animation
+    doAnimation('#winLose', 'appearFromTop', 2, 'ease-in.out');
+    setTimeout(() => {
+        document.getElementById('winLose').style.top = `0%`
+    }, 2000)
 }
