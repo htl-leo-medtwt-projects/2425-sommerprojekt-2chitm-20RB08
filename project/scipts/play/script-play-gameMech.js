@@ -57,6 +57,9 @@ function newGame(enemiePos) {
     createGamePOV();
     // go to the next round
     enemieDrawnCard();
+
+    // Keine karte nehmen
+    document.getElementById('player-handBlock').style.top = '20%'
 }
 newGame(0)
 
@@ -117,6 +120,11 @@ function enemieDrawnCard() {
             createLayedDownCard();
             createFightersDecks();
             doAnimation('#enemie-topLayedDownCard', 'placeInLayedDownCard', 1, 'ease-in-out');
+
+            // freigebung einer karte ziehen
+            setTimeout(()=>{
+                document.getElementById('player-handBlock').style.top = '-1000%'
+            }, 1000)
         }, 1000);
     }, timeWait)
 
@@ -214,6 +222,10 @@ function getDamage(attacker, defender) {
 function playerAttack(playerHandPos) {
     // Animation starten, bevor die Karte entfernt wird
     doAnimation(`#playerhand${playerHandPos}`, 'takeACardFromTheDeck', 1, 'ease-in-out');
+
+    // keine karten mehr auswälne
+    // freigebung eine karte ziehen
+        document.getElementById('player-handBlock').style.top = '20%'
 
     // Karte auswählen und verschieben
     setTimeout(() => {
