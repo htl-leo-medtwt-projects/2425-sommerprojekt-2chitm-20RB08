@@ -64,7 +64,7 @@ function newGame(enemiePos) {
     // Keine karte nehmen
     document.getElementById('player-handBlock').style.top = '20%'
 }
-newGame(0)
+newGame(1)
 
 function getRandomNum(size) {
     return Math.floor(Math.random() * size);

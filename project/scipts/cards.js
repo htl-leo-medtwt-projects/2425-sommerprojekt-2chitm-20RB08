@@ -60,7 +60,7 @@ const startdeck = [
 /**********************
  * Enemie Card
  **********************/
-// Albino Goblin
+// Albino Goblin lv1/index: 0
 const anger = new Card("Anger", 1, 0, 0, 0, 0, -1, "../img/enemieCard/anger.webp");
 const lunge = new Card("Lunge", 2, 0, 0, 0, 0, 0, "../img/enemieCard/lunge.webp"); // Spezialeffekt evtl. extra behandeln
 const pain = new Card("Pain", 0, 2, 0, 0, 0, 0, "../img/enemieCard/pain.webp");
@@ -74,3 +74,16 @@ const albinoGoblinDeck = [
   torment
 ];
 
+// Bandito lv3/index: 2
+const strike = new Card("Strike", 1, 0, 0, 0, 0, 0, "../img/enemieCard/strike.webp");
+const headBlow = new Card("Head Blow", 1, 0, 0, 0, 0, 0, "../img/enemieCard/headBlow.png");
+const parry = new Card("Parry", 2, 0, 1, 0, 0, 0, "../img/enemieCard/parry.webp");
+const stagger = new Card("Stagger", 2, 0, 0, 0, 0, 0, "../img/enemieCard/stagger.webp");
+const swipe = new Card("Swipe", 3, 0, 2, 0, 0, 0, "../img/enemieCard/swipe.webp");
+const banditoDeck = [
+  strike,
+  headBlow,
+  parry,
+  stagger,
+  swipe,
+]
