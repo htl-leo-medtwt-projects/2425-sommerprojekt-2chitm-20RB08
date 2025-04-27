@@ -24,6 +24,9 @@ class Player {
         this.armor = null;
         this.skil = null;
 
+        // level
+        this.level = 0;
+
         // Alle Karten beim Start laden
         this.getAllCard();
     }

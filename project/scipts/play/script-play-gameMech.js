@@ -41,6 +41,7 @@ function newGame(enemiePos) {
             currentCard: null,
             beatenGold: ENEMIES[enemiePos].beatenGold,
             stealGold: ENEMIES[enemiePos].stealGold,
+            level: enemiePos,
         }
     }
 
@@ -317,8 +318,14 @@ function gameOver() {
     }
 
     // Animation
-    doAnimation('#winLose', 'appearFromTop', 2, 'ease-in.out');
-    setTimeout(() => {
-        document.getElementById('winLose').style.top = `0%`
+    setTimeout(()=>{
+        doAnimation('#winLose', 'appearFromTop', 2, 'ease-in-out');
+        setTimeout(() => {
+            document.getElementById('winLose').style.top = `0%`
+        }, 2000)
     }, 2000)
+    
+
+    // spilerstand neu speicher
+    safePlayer();
 }
