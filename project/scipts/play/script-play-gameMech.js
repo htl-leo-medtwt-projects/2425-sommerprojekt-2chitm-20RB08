@@ -90,7 +90,8 @@ function enemieDrawnCard() {
 
         // Karten deck kreaieren
         setTimeout(() => {
-            doAnimation('#enemi-deck', 'takeACardFromTheDeck', 1, 'reverse')
+            document.getElementById('enemie-deck').style.opacity = '1';
+            doAnimation('#enemie-deck', 'takeACardFromTheDeck', 1, 'reverse')
             createFightersDecks();
         }, 900)
 
@@ -144,8 +145,14 @@ function fight() {
     // Leben anpassen
     fighters.player.live -= playerDamage;
     fighters.player.live += playerCurrentCard.live;
+    if (fighters.player.live < 0){
+        fighters.player.live = 0
+    }
     fighters.enemie.live -= enemieDamage;
     fighters.enemie.live += enemieCurrentCard.live;
+    if (fighters.enemie.live < 0){
+        fighters.enemie.live = 0
+    }
 
     // Animation
     setTimeout(() => {
@@ -161,7 +168,7 @@ function fight() {
     }, 1000)
     // Überprüfen, ob das Spiel vorbei ist
     setTimeout(()=>{
-        if (fighters.player.live <= 0 || fighters.enemie.live <= 0) {
+        if (fighters.enemie.live <= 0 || fighters.player.live <= 0) {
             gameOver();
         } else {
             let timeWait = 0;
@@ -170,6 +177,11 @@ function fight() {
             }
             if (fighters.enemie.deck.length == 0) {
                 timeWait += 2000;
+            }
+
+            // gegner kartendeck ist leer
+            if (fighters.enemie.deck.length == 0){
+                document.getElementById('enemie-deck').style.opacity = '0';
             }
             setTimeout(() => {
                 // spieler zieht eine Karte
@@ -307,7 +319,11 @@ function gameOver() {
         document.getElementById('earnedGold').innerHTML = `<span>-<span class="losedGold">${stealGold}</span><small>Gold</small></span>`
 
         // gold abziehen
-        player.gold -= (player.gold - stealGold < 0) ? 0 : player.gold - stealGold;
+        if (player.gold - stealGold < 0) {
+            player.gold = 0;
+        } else {
+            player.gold = player.gold - stealGold;
+        }
     } else { // gewonnen
         document.getElementById('winLose').style.backgroundImage = 'url(../img/youWinImg.png)';
         document.getElementById('winLose').offsetHeight;

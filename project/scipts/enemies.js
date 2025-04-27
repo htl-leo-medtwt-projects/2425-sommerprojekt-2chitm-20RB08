@@ -14,8 +14,10 @@ class enemie{
 
 // Albino Goblin lv1/index: 0
 const goblin = new enemie("Goblin", albinoGoblinDeck, 2, '../img/charakter/goblin.png', 50, 15);
+// Mummy lv2/index: 1
+const mummy = new enemie("Mummy", mummyDeck, 5, "../img/charakter/mummy.png", 50, 20)
 // Bandito lv3/index: 2
 const bandito = new enemie('Bandito', banditoDeck, 5, '../img/charakter/bandito.png', 50, 20)
 
 
-const ENEMIES = [goblin, bandito];
+const ENEMIES = [goblin, mummy, bandito];

@@ -74,6 +74,17 @@ const albinoGoblinDeck = [
   torment
 ];
 
+// Mummy lv2/index 1
+const headbutt = new Card("Headbutt", 2, 0, 0, 0, 0, -1, "../img/enemieCard/headbutt.webp");
+const sweepingBlast = new Card("Sweeping Blast", 0, 2, 0, 1, 0, 0, "../img/enemieCard/sweepingBlast.webp")
+const mummyDeck = [
+    sweepingBlast,
+    pain, pain,
+    torment,
+    anger,
+    headbutt, headbutt
+]
+
 // Bandito lv3/index: 2
 const strike = new Card("Strike", 1, 0, 0, 0, 0, 0, "../img/enemieCard/strike.webp");
 const headBlow = new Card("Head Blow", 1, 0, 0, 0, 0, 0, "../img/enemieCard/headBlow.png");

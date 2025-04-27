@@ -241,9 +241,8 @@
 }
 
 #enemie-deck {
-    right: 15%;
+    right: 5%;
     top: 10%;
-    transform: scaleX(-1);
 }
 
 /*** layedDownCards ***/
