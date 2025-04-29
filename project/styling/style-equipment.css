@@ -212,16 +212,30 @@
     align-items: center;
     gap: 1vw
 }
-#cards img{
+#cards > *{
     width: 15%;
     transform: scale(1);
     z-index: 0;
 
     transition: all 0.15s;
 }
-#cards img:hover{
+#cards > *:hover{
     transform: scale(2.5);
     z-index: 1;
+}
+/*** extraLive ***/
+#extraLive{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Fingerpaint;
+    font-size: 2vw;
+
+    background-color: white;
+    border-radius: 5px;
+}
+#extraLive img{
+    width: 50%;
 }
 
 /***** Button *****/

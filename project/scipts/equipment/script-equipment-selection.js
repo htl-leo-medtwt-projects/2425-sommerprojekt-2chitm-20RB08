@@ -24,6 +24,10 @@ function openEquip(cat, pos) {
             isEquip = true;
         }
     }
+    if(lootCard.extraLife != 0){
+        s += `<div id="extraLive">${lootCard.extraLife}<img src="../img/heart.png" alt="life"></div>`
+        
+    }
     document.getElementById('cards').innerHTML = s;
 
     // equip or not

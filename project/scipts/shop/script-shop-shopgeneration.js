@@ -72,6 +72,7 @@ function createPurchaseplate(pos){
             <!--information-->
             <div id="info">
                 ${getLootInfo(sellable[pos].deck)}
+                ${getHeartsInfo(sellable[pos].extraLife)}
             </div>
 
             <!--Scrool-->
@@ -82,6 +83,14 @@ function getLootInfo(deck){
     let s = '';
     for (let i = 0; i < deck.length; i++){
         s += `<img src="${deck[i].img}" alt="${deck[i].name}">`;
+    }
+    return s;
+}
+function getHeartsInfo(extraLife){
+    let s = '';
+    console.log(extraLife)
+    if (extraLife != 0){
+        s = `<div id="extraLive">${extraLife} <img src="../img/heart.png" alt"${extraLife}"></div>`;
     }
     return s;
 }

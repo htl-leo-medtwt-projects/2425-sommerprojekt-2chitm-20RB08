@@ -47,7 +47,7 @@ class Player {
     
 
     getAllOwnedLoots() {
-        return [this.weaponArr, this.armorArr, this.skilArr];
+        return [this.weapon, this.armor, this.skil];
     }
 
     getCurrentLive(){

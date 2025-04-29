@@ -18,7 +18,7 @@ class Loot{
 const emptyLoot  = new Loot('nothing', '....', [], 0, 'not here');
 // Weapon
 const flintlock = new Loot('Flintlock', 'weapon', [eyesClosedPunch, luckyHit], 40, '../img/lootCard/flintlock.png')
-const brassKnuccles = new Loot('Brass Knuccles', 'weapon', [eyesClosedPunch, luckyHit], 15, '../img/lootCard/brassKnuccles.png')
+const brassKnuccles = new Loot('Brass Knuccles', 'weapon', [eyesClosedPunch, luckyHit], 15, '../img/lootCard/brassKnuccles.png', 2)
 
 // armor
 const spikyHat = new Loot('Spiky Hat', 'armor', [bash, youTryinSomething], 7, '../img/lootCard/spikyHat.png')
@@ -28,6 +28,6 @@ const paperCrown = new Loot('Paper Crown', 'armor', [fireShield, cower], 15, '..
 
 // Skil
 const spyglass = new Loot('Spyglass', 'skil', [demolish, uhh], 26, '../img/lootCard/spyglass.png')
-const twing = new Loot('Twing', 'skil', [eyesClosedPunch, oi], 5, '../img/lootCard/twing.png')
+const twing = new Loot('Twing', 'skil', [eyesClosedPunch, oi], 5, '../img/lootCard/twing.png', 3)
 
 const loot = [flintlock, brassKnuccles, spikyHat, hornedHelm, doomPlate, spyglass, twing, paperCrown];

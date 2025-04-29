@@ -27,7 +27,7 @@ function newGame(enemiePos) {
             name: player.name,
             img: player.img,
             deck: player.getAllCard(),
-            live: player.health,
+            live: player.getCurrentLive(),
             layedDownCards: [],
             currentCard: null,
             hand: [],

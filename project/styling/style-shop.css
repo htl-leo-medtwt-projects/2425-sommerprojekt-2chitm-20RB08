@@ -169,3 +169,17 @@
     opacity: 1;
     transform: scale(1);
 }
+
+/*** extraLive ***/
+#extraLive {
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    font-family: Fingerpaint;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#extraLive img {
+    width: 20%;
+}
