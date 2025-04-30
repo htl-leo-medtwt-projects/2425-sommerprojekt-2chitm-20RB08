@@ -9,14 +9,14 @@ class Player {
         this.img = '../img/charakter/player.png'
 
         // Random Startdeck
-        this.startDeck = startdeck[0];
+        this.startDeck = startdeckOptions[Math.floor(Math.random() * startdeckOptions.length)];
 
         // Alle Karten (wird später zusammengesetzt)
         this.deck = [];
 
         // Gekaufte Loots
-        this.weaponArr = [flintlock];
-        this.armorArr = [flintlock];
+        this.weaponArr = [];
+        this.armorArr = [];
         this.skilArr = [];
 
         // Ausgerüstete Loots

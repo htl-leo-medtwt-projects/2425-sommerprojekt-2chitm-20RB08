@@ -51,7 +51,7 @@ const allHeroCards = [
 ];
 
 // 3 starddecks
-const startdeck = [
+const startdeckOptions = [
   [eyesClosedPunch, eyesClosedPunch, eyesClosedPunch, luckyHit],
   [oi, oi, youTryinSomething, getOuttaHere, getOuttaHere, niceTryChump],
   [fireShield, fireShield, niceTryChump, niceTryChump, rekindle, smite, uhh]

@@ -14,7 +14,8 @@ let fighters = {
         deck: null,
         layedDownCards: null,
         live: null,
-    }
+    },
+    level: null,
 }
 
 /**********************
@@ -42,7 +43,8 @@ function newGame(enemiePos) {
             beatenGold: ENEMIES[enemiePos].beatenGold,
             stealGold: ENEMIES[enemiePos].stealGold,
             level: enemiePos,
-        }
+        },
+        level : enemiePos
     }
 
 
@@ -58,13 +60,21 @@ function newGame(enemiePos) {
     }
 
     createGamePOV();
-    // go to the next round
-    enemieDrawnCard();
 
     // Keine karte nehmen
     document.getElementById('player-handBlock').style.top = '20%'
+
+    // bildshirm bekommen
+    doAnimation('#game-field', 'appearFromTop', 1, 'ease-in-out');
+    setTimeout(() => {
+        document.getElementById('game-field').style.top = '0%';
+    }, 1000)
+
+    // go to the next round
+    setTimeout(()=>{
+        enemieDrawnCard();
+    }, 2000)
 }
-newGame(1)
 
 function getRandomNum(size) {
     return Math.floor(Math.random() * size);
@@ -145,12 +155,12 @@ function fight() {
     // Leben anpassen
     fighters.player.live -= playerDamage;
     fighters.player.live += playerCurrentCard.live;
-    if (fighters.player.live < 0){
+    if (fighters.player.live < 0) {
         fighters.player.live = 0
     }
     fighters.enemie.live -= enemieDamage;
     fighters.enemie.live += enemieCurrentCard.live;
-    if (fighters.enemie.live < 0){
+    if (fighters.enemie.live < 0) {
         fighters.enemie.live = 0
     }
 
@@ -167,7 +177,7 @@ function fight() {
         }, 1000)
     }, 1000)
     // Überprüfen, ob das Spiel vorbei ist
-    setTimeout(()=>{
+    setTimeout(() => {
         if (fighters.enemie.live <= 0 || fighters.player.live <= 0) {
             gameOver();
         } else {
@@ -180,7 +190,7 @@ function fight() {
             }
 
             // gegner kartendeck ist leer
-            if (fighters.enemie.deck.length == 0){
+            if (fighters.enemie.deck.length == 0) {
                 document.getElementById('enemie-deck').style.opacity = '0';
             }
             setTimeout(() => {
@@ -324,6 +334,13 @@ function gameOver() {
         } else {
             player.gold = player.gold - stealGold;
         }
+
+        // ablevel
+        if (player.level == fighters.level && player.level != 0){ // downfal nach 1 zurück
+            player.level--;
+        } else{ // zurückfallen wo man war
+            player.level = fighters.level;
+        }
     } else { // gewonnen
         document.getElementById('winLose').style.backgroundImage = 'url(../img/youWinImg.png)';
         document.getElementById('winLose').offsetHeight;
@@ -331,16 +348,21 @@ function gameOver() {
 
         // gold hinzufügen
         player.gold += fighters.enemie.beatenGold;
+
+        // aulf leveln wenn er auf allerhöchsten level ist
+        if (player.level == fighters.level){
+            player.level++;
+        }
     }
 
     // Animation
-    setTimeout(()=>{
+    setTimeout(() => {
         doAnimation('#winLose', 'appearFromTop', 2, 'ease-in-out');
         setTimeout(() => {
             document.getElementById('winLose').style.top = `0%`
         }, 2000)
     }, 2000)
-    
+
 
     // spilerstand neu speicher
     safePlayer();
