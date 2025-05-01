@@ -16,7 +16,7 @@ class Card {
 
 /**********************
  * HeroCard
- **********************/
+ **********************/  
 const bash = new Card("Bash", 1, 0, 1, 0, 0, 0, "../img/heroCard/Bash.webp");
 const counter = new Card("Counter", 2, 0, 1, 0, 0, 0, "../img/heroCard/Counter.webp");
 const cower = new Card("Cower", 0, 0, 0, 0, 1, 0, "../img/heroCard/Cower.webp");
@@ -31,6 +31,9 @@ const luckyHit = new Card("Lucky Hit", 2, 0, 0, 0, 0, 0, "../img/heroCard/Lucky_
 const refresh = new Card("Refresh", 0, 0, 0, 0, 0, 6, "../img/heroCard/Refresh.webp");
 const rekindle = new Card("Rekindle", 0, 1, 0, 0, 0, 1, "../img/heroCard/Rekindle.webp");
 const repel = new Card("Repel", 0, 0, 3, 0, 0, 0, "../img/heroCard/Repel.webp");
+
+const aspectOfTheBull = new Card("Aspect Of The Bull", 2, 0, 0, 0, 0, 0, "../img/heroCard/aspectOfTheBull.png");
+const flaskOfHealing = new Card("Flask of Healing", 0, 0, 0, 0, 0, 1, "../img/heroCard/flaskOfHealing.jpg");
 
 const slice = new Card("Slice", 2, 0, 0, 0, 0, 0, "../img/heroCard/Slice.webp");
 const smash = new Card("Smash", 3, 0, 1, 0, 0, 0, "../img/heroCard/Smash.webp");
@@ -47,7 +50,9 @@ const allHeroCards = [
   bash, counter, cower, demolish,
   divineShield, eviscerate, eyesClosedPunch, fireblast,
   luckyHit, refresh, rekindle, repel,
-  slice, smash, smite, uhh
+  slice, smash, smite, uhh, oi, youTryinSomething, getOuttaHere,
+  howDoYouLikeThis, niceTryChump, fireShield,
+  aspectOfTheBull, flaskOfHealing
 ];
 
 // 3 starddecks
@@ -97,4 +102,20 @@ const banditoDeck = [
   parry,
   stagger,
   swipe,
+]
+
+// Embro lv6/index:5
+const bodySlam = new Card("Body Slam", 3, 0, 0, 0, 0, -1, "../img/enemieCard/bodySlam.webp");
+const fieryWeapon = new Card("Fiery Weapon", 1, 1, 0, 0, 0, 0, "../img/enemieCard/fieryWeapon.webp");
+const fireball = new Card("Fireball", 0, 2, 0, 0, 0, 0, "../img/enemieCard/fireball.webp");
+const blaze = new Card("Blaze", 0, 3, 0, 0, 0, 0, "../img/enemieCard/blaze.webp");
+const embroDeck = [
+  headbutt,
+  bodySlam, bodySlam,
+  parry,
+  stagger,
+  swipe,
+  fieryWeapon,
+  fireball,
+  blaze
 ]

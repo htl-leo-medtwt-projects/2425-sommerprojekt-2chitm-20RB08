@@ -23,3 +23,14 @@ function createCave() {
     document.getElementById('userView').style.backgroundImage = `url(../img/mapArrows/maparrows${player.level}.png), url(../img/background/careered.jpg)`;
 }
 createCave();
+
+function goBackToMap(){
+    // Map neu gestalten
+    createCave();
+
+    // game field
+    doAnimation('#game-field', 'appearFromTop', 2, 'reverse');
+    setTimeout(()=>{
+        document.getElementById('game-field').style.top = '-100%';
+    }, 2000)
+}

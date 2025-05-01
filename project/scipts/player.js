@@ -5,7 +5,7 @@ class Player {
     constructor(name = 'Held') {
         this.name = name;
         this.health = 5;
-        this.gold = 100;
+        this.gold = 10;
         this.img = '../img/charakter/player.png'
 
         // Random Startdeck
