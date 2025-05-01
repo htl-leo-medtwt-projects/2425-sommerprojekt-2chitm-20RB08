@@ -57,8 +57,8 @@ const allHeroCards = [
 
 // 3 starddecks
 const startdeckOptions = [
-  [eyesClosedPunch, eyesClosedPunch, eyesClosedPunch, luckyHit],
-  [oi, oi, youTryinSomething, getOuttaHere, getOuttaHere, niceTryChump],
+  [eyesClosedPunch, eyesClosedPunch, eyesClosedPunch, luckyHit,  youTryinSomething, fireShield],
+  [oi, oi, youTryinSomething, getOuttaHere, getOuttaHere, niceTryChump, luckyHit],
   [fireShield, fireShield, niceTryChump, niceTryChump, rekindle, smite, uhh]
 ]
 
@@ -104,10 +104,29 @@ const banditoDeck = [
   swipe,
 ]
 
+// Werecrab lv4/index:3
+const spook = new Card('Spook', 0, 1, 1, 0, 0, 0, '../img/enemieCard/spook.webp')
+const drain = new Card('Drain', 0, 1, 0, 0, 0, 1, '../img/enemieCard/drain.jpg')
+const werecrabDeck = [
+  spook,
+  drain,
+  strike, headBlow, parry,
+  stagger,
+  strike,
+  swipe
+]
+
+// Birdy lv5/index: 4
+const fireball = new Card("Fireball", 0, 2, 0, 0, 0, 0, "../img/enemieCard/fireball.webp");
+const birdyDeck = [
+    anger, anger,
+    swipe, torment,
+    headBlow, fireball
+]
+
 // Embro lv6/index:5
 const bodySlam = new Card("Body Slam", 3, 0, 0, 0, 0, -1, "../img/enemieCard/bodySlam.webp");
 const fieryWeapon = new Card("Fiery Weapon", 1, 1, 0, 0, 0, 0, "../img/enemieCard/fieryWeapon.webp");
-const fireball = new Card("Fireball", 0, 2, 0, 0, 0, 0, "../img/enemieCard/fireball.webp");
 const blaze = new Card("Blaze", 0, 3, 0, 0, 0, 0, "../img/enemieCard/blaze.webp");
 const embroDeck = [
   headbutt,
