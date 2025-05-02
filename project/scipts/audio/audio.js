@@ -11,8 +11,6 @@ document.body.addEventListener('click', () => {
     backgroundAudio.play().catch(error => console.error('backgroundAudio konnte nicht abgespielt werden:', error));
 }, { once: true }); // Nur einmal ausführen
 
-// Zugriff auf den Mute-Button
-const muteButton = document.getElementById('muteButton');
 
 // Sicherstellen, dass die Musik erneut abgespielt wird, falls die Schleifenfunktion deaktiviert ist
 function setBackgroundAudio(audio){
