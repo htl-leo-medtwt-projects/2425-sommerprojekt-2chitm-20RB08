@@ -60,6 +60,7 @@ function newGame(enemiePos) {
     }
 
     createGamePOV();
+    createLayedDownCard();
 
     // Keine karte nehmen
     document.getElementById('player-handBlock').style.top = '20%'
@@ -74,6 +75,9 @@ function newGame(enemiePos) {
     setTimeout(()=>{
         enemieDrawnCard();
     }, 2000)
+
+    // winLose disapearen
+    document.getElementById('winLose').style.top = '-100%';
 }
 
 function getRandomNum(size) {
