@@ -15,9 +15,14 @@ function selectLootCard(num) {
     document.getElementById('purchaseplate').offsetHeight;
     document.getElementById('purchaseplate').style.animation = 'switch 1s';
 
+    // sound
+    playPaperWipe();
+
     // purchaes plate anzegen
     setTimeout(() => {
         createPurchaseplate(num);
+        // sound
+        playPaperWipe();
     }, 500)
 }
 
@@ -56,6 +61,9 @@ function buyLootCard(pos) {
         document.getElementById('purchaseplate').offsetHeight;
         document.getElementById('purchaseplate').style.animation = 'bought 0.5s';
 
+        // play sound
+        playPurchaseSound();
+
         // purchaes plate anzegen
         setTimeout(() => {
             document.getElementById('purchaseplate').innerHTML = '<h2>What are you loking for?</h2>';
@@ -68,5 +76,8 @@ function buyLootCard(pos) {
 
         // information loggen
         console.log(`***** Purchaes failde *****\n You do not have enough gold!`);
+
+        // play error sound
+        playErrorSound();
     }
 }
