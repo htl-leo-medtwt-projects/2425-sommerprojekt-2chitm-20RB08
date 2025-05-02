@@ -2,7 +2,6 @@
  * Backgrouns Music
  ***********************************/
 // Erstellen des backgroundAudio-Elements
-let backgroundAudio = new Audio('../sounds/backgroundMusic/shopMusic.mp3');
 backgroundAudio.loop = true; // Automatisches Wiederholen aktivieren
 backgroundAudio.volume = 0.5; // Anfangslautstärke (50%)
 
@@ -26,7 +25,6 @@ function setBackgroundAudio(audio){
 /******************************
  * Click sound
  *****************************/
-const clickSound = new Audio('../sounds/effects/click.wav')
 document.addEventListener('click', ()=>{
     clickSound.pause();
     clickSound.currentTime = 0;

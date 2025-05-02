@@ -8,6 +8,14 @@
     <!--Style-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styling/style-index.css">
+
+    <!--Audio-->
+    <script defer>
+        let backgroundAudio = new Audio('sounds/backgroundMusic/index.mp3')
+        const clickSound = new Audio('sounds/effects/click.wav')
+    </script>
+    <script src="scipts/audio/audio.js" defer></script>
+    <script src="scipts/audio/soundEffekts.js" defer></script>
 </head>
 
 <body>
@@ -19,24 +27,4 @@
         <div class="scroll"><a href="pages/reveal.js-master/tutorial.html">Play</a></div>
     </div>
 </body>
-<!--Audio-->
-<script>
-    // Erstellen des backgroundAudio-Elements
-    let backgroundAudio = new Audio('sounds/backgroundMusic/start.mp3');
-    backgroundAudio.loop = true; // Automatisches Wiederholen aktivieren
-    backgroundAudio.volume = 0.5; // Anfangslautstärke (50%)
-
-    // backgroundAudio erst nach Benutzerinteraktion starten
-    document.body.addEventListener('click', () => {
-        backgroundAudio.play().catch(error => console.error('backgroundAudio konnte nicht abgespielt werden:', error));
-    }, { once: true }); // Nur einmal ausführen
-
-    const clickSound = new Audio('sounds/effects/click.wav')
-    document.addEventListener('click', () => {
-        clickSound.pause();
-        clickSound.currentTime = 0;
-        clickSound.play();
-    })
-</script>
-
 </html>
