@@ -25,3 +25,12 @@ const paperWipe = new Audio('../sounds/effects/paper.mp3')
 function playPaperWipe(){
     playSoundeffect(paperWipe);
 }
+
+/***************
+ * Equipment
+ *************/
+// open equip info
+const popSound = new Audio('../sounds/effects/pop.mp3')
+function playPopSound(){
+    playSoundeffect(popSound);
+}

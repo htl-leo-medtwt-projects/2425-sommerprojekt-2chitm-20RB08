@@ -41,6 +41,9 @@ function openEquip(cat, pos) {
 
     // appear equip
     document.getElementById('equip').style.bottom = '50%';
+
+    // sound
+    playPopSound();
 }
 
 function getCatogory(cat) {
@@ -106,6 +109,8 @@ function closeEquip() {
     document.getElementById('equip').style.bottom = '-150%';
     console.log('Close Equip');
 
+    // sound
+    playPopSound();
 }
 
 /*****************
@@ -117,12 +122,17 @@ function openUsernameInput(){
 
     // give close
     document.getElementById('player').setAttribute('onclick', `closeUsernameInput()`)
+
+    // sound 
+    playPaperWipe();
 }
 
 function closeUsernameInput(){
     document.getElementById('userNameInput').style.top = '-40%';
     // give close
     document.getElementById('player').setAttribute('onclick', `openUsernameInput()`)
+    // sound 
+    playPaperWipe();
 }
 
 function changeUserName() {

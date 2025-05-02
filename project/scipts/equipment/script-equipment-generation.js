@@ -6,6 +6,9 @@ function closeSelectplate() {
     document.getElementById('selectplate').offsetHeight;
     document.getElementById('selectplate').style.animation = 'selectplateDisapear 1s';
 
+    // sound 
+    playPaperWipe();
+
     setTimeout(() => {
         document.getElementById('selectplate').style.bottom = '-150%';
         closeEquip();
@@ -28,6 +31,9 @@ function openSelectplate(cat) {
     document.getElementById('selectplate').style.animation = 'none';
     document.getElementById('selectplate').offsetHeight;
     document.getElementById('selectplate').style.animation = 'selectplateDisapear 1s reverse';
+
+    // sound 
+    playPaperWipe();
 
     setTimeout(() => {
         document.getElementById('selectplate').style.bottom = '-40%';
