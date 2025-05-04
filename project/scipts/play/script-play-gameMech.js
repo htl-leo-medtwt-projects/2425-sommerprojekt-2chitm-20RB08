@@ -44,7 +44,7 @@ function newGame(enemiePos) {
             stealGold: ENEMIES[enemiePos].stealGold,
             level: enemiePos,
         },
-        level : enemiePos
+        level: enemiePos
     }
 
 
@@ -72,12 +72,15 @@ function newGame(enemiePos) {
     }, 1000)
 
     // go to the next round
-    setTimeout(()=>{
+    setTimeout(() => {
         enemieDrawnCard();
     }, 2000)
 
     // winLose disapearen
     document.getElementById('winLose').style.top = '-100%';
+
+    // background music switchen
+    setBackgroundAudio('../sounds/backgroundMusic/navigation.mp3')
 }
 
 function getRandomNum(size) {
@@ -98,6 +101,8 @@ function enemieDrawnCard() {
 
         // animation
         doAnimation('#enemie-layedDownCards', 'placeInLayedDownCard', 1, 'reverse')
+        // deck wegziehen
+        playPaperWipe();
         setTimeout(() => {
             createLayedDownCard();
         }, 1000)
@@ -107,6 +112,8 @@ function enemieDrawnCard() {
             document.getElementById('enemie-deck').style.opacity = '1';
             doAnimation('#enemie-deck', 'takeACardFromTheDeck', 1, 'reverse')
             createFightersDecks();
+            // deck wieder hinlegen
+            playPaperWipe();
         }, 900)
 
         timeWait = 2000;
@@ -131,6 +138,8 @@ function enemieDrawnCard() {
         // Animation Karte ziehen
         setTimeout(() => {
             doAnimation('#enemie-topCardDeck', 'takeACardFromTheDeck', 1, 'ease-in-out');
+            // karte ziehen audio
+            playPaperWhosh();
         }, 50);
 
         // Karte in layedDownCards geben
@@ -138,6 +147,8 @@ function enemieDrawnCard() {
             createLayedDownCard();
             createFightersDecks();
             doAnimation('#enemie-topLayedDownCard', 'placeInLayedDownCard', 1, 'ease-in-out');
+            // karte ablegen audio
+            playPaperWhosh();
 
             // freigebung einer karte ziehen
             setTimeout(() => {
@@ -173,6 +184,12 @@ function fight() {
         // animation
         doAnimation('#player .char', 'playerAttack', 2, 'ease-in-out');
         doAnimation('#enemie .char', 'enemieAttack', 2, 'ease-in-out');
+
+        // hit audio abspieln
+        setTimeout(() => {
+            playHitSound();
+        }, 500)
+
 
         // neues leben anzeigen
         setTimeout(() => {
@@ -252,6 +269,8 @@ function getDamage(attacker, defender) {
 function playerAttack(playerHandPos) {
     // Animation starten, bevor die Karte entfernt wird
     doAnimation(`#playerhand${playerHandPos}`, 'takeACardFromTheDeck', 1, 'ease-in-out');
+    // karte nehmenm
+    playPaperWhosh();
 
     // keine karten mehr auswälne
     // freigebung eine karte ziehen
@@ -263,6 +282,9 @@ function playerAttack(playerHandPos) {
         fighters.player.layedDownCards.push(fighters.player.currentCard);
         fighters.player.hand.splice(playerHandPos, 1);
         console.log(`***Spieler greift an mit '${fighters.player.currentCard.name}'***`);
+
+        // karte ablegen
+        playPaperWhosh();
 
         // Ansicht aktualisieren
         createGamePOV();
@@ -285,6 +307,8 @@ function playerDrawnCard() {
 
         // animation
         doAnimation('#player-layedDownCards', 'placeInLayedDownCard', 1, 'reverse')
+        // deck wegziehen
+        playPaperWipe();
         setTimeout(() => {
             createLayedDownCard();
         }, 1000)
@@ -293,6 +317,8 @@ function playerDrawnCard() {
         setTimeout(() => {
             doAnimation('#player-deck', 'takeACardFromTheDeck', 1, 'reverse')
             createFightersDecks();
+            // neus deck hinlegen
+            playPaperWipe();
         }, 900)
 
         timeWait = 2000;
@@ -310,6 +336,9 @@ function playerDrawnCard() {
             // Karte zur Hand hinzufügen
             fighters.player.hand.push(drawnCard);
             console.log(`***Spieler zieht '${drawnCard.name}'***`);
+
+            // karte nehmenm vom spieler deck
+            playPaperWhosh();
         }, 50);
 
         // Karte in hand geben
@@ -317,6 +346,9 @@ function playerDrawnCard() {
             createFightersDecks();
             getPlayerHand();
             doAnimation('#playerhand2', 'takeACardFromTheDeck', 1, 'ease-in-out reverse');
+
+            // karte in die hand legen
+            playPaperWhosh();
         }, 1000)
     }, timeWait)
 }
@@ -325,6 +357,7 @@ function playerDrawnCard() {
  * Game Over
  *****************/
 function gameOver() {
+    let crowd = '';
     // Verloren
     if (fighters.player.live <= 0) {
         let stealGold = fighters.enemie.stealGold
@@ -340,11 +373,14 @@ function gameOver() {
         }
 
         // ablevel
-        if (player.level == fighters.level && player.level != 0){ // downfal nach 1 zurück
+        if (player.level == fighters.level && player.level != 0) { // downfal nach 1 zurück
             player.level--;
-        } else{ // zurückfallen wo man war
+        } else { // zurückfallen wo man war
             player.level = fighters.level;
         }
+
+        // crowd booin
+        crowd = '../sounds/backgroundMusic/booingCrowd.mp3';
     } else { // gewonnen
         document.getElementById('winLose').style.backgroundImage = 'url(../img/youWinImg.png)';
         document.getElementById('winLose').offsetHeight;
@@ -354,14 +390,18 @@ function gameOver() {
         player.gold += fighters.enemie.beatenGold;
 
         // aulf leveln wenn er auf allerhöchsten level ist
-        if (player.level == fighters.level){
+        if (player.level == fighters.level) {
             player.level++;
         }
+
+        // crowd booin
+        crowd = '../sounds/backgroundMusic/cheringCrowd.wav';
     }
 
     // Animation
     setTimeout(() => {
         doAnimation('#winLose', 'appearFromTop', 2, 'ease-in-out');
+        setBackgroundAudio(crowd);
         setTimeout(() => {
             document.getElementById('winLose').style.top = `0%`
         }, 2000)

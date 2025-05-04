@@ -21,6 +21,11 @@ function createCave() {
 
     // map arrows
     document.getElementById('userView').style.backgroundImage = `url(../img/mapArrows/maparrows${player.level}.png), url(../img/background/careered.jpg)`;
+
+    // hintergrund music änder
+    setTimeout(()=>{
+        setBackgroundAudio('../sounds/backgroundMusic/battle.mp3');
+    })
 }
 createCave();
 

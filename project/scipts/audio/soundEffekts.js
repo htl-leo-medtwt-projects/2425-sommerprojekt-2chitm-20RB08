@@ -34,3 +34,17 @@ const popSound = new Audio('../sounds/effects/pop.mp3')
 function playPopSound(){
     playSoundeffect(popSound);
 }
+
+/***********
+ * Game
+ ***********/
+// paper whosh
+const paperWhosh = new Audio('../sounds/effects/paperWhosh.mp3')
+function playPaperWhosh(){
+    playSoundeffect(paperWhosh);
+}
+// hit
+const hitSound = new Audio('../sounds/effects/hit.wav')
+function playHitSound(){
+    playSoundeffect(hitSound);
+}
