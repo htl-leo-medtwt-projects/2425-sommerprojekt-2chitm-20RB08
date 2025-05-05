@@ -17,6 +17,7 @@
     <script src="../scipts/enemies.js" defer></script>
     <script src="../scipts//play/script-play-gameGenerationAnimation.js" defer></script>
     <script src="../scipts/play/script-play-gameMech.js" defer></script>
+    <script src="../scipts/play/script-play-end.js" defer></script>
 
     <!--Audio-->
     <script defer>
@@ -38,7 +39,7 @@
         <div class="scroll">
             <a href="navigation.html">Back</a>
         </div>
-        <div class="plate" id="playerGold" >
+        <div class="plate" id="playerGold">
             <span class="winnedGold"></span>Gold
         </div>
 
@@ -85,13 +86,37 @@
 
             <!--Win Lose Screen-->
             <div id="winLose">
-                <div class="scroll" onclick="goBackToMap()"><p>Go Back</p></div>
+                <div class="scroll" onclick="goBackToMap()">
+                    <p>Go Back</p>
+                </div>
                 <div class="plate" id="earnedGold"><span><span class="losedGold">329084</span><small>Gold</small></span>
                 </div>
             </div>
         </div>
+    </div>
 
-
+    <!--End Gamescreen-->
+    <div id="end-screen" class="glass-box">
+        <div class="fullscreen">
+            <h1>You Did It.</h1>
+        </div>
+        <div>
+            <h2>But was this really the end?</h2>
+            <p>You uncovered all there was to find… or did you?</p>
+        </div>
+        <div>
+            <h2>Credits</h2>
+            <p><strong>Creator:</strong> Roland E. Bauer</p>
+            <p><strong>Evaluator:</strong> Rammelmüller N. & Huemer M.</p>
+        </div>
+        <div>
+            <h2>Game Ideea From "Guild of Duongeoneerin"</h2>
+            <p>A cool funny game that every can buy on steam or epicgames</p>
+        </div>
+        <h2>The story continues – somewhere, somehow.</h2>
+        <div class="fullscreen">
+            <h1>Thanks for being part of this journey.</h1>
+        </div>
     </div>
 
 </body>
