@@ -10,7 +10,7 @@
 /****************************
 * Plate
 *****************************/
-.scroll {
+#backScroll {
     left: 6%;
     top: 6%;
 }
@@ -362,10 +362,10 @@
     gap: 30vh;
 
     position: absolute;
-    top: 0%;
+    bottom: -5000%;
 
     overflow: auto;
-    z-index: 1000000000;
+    z-index: 1000;
 
     text-align: center;
 }
@@ -375,6 +375,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 #end-screen h1{
     font-family: Chalkboy;
@@ -387,4 +388,27 @@
 #end-screen p{
     font-family: FingerPaint;
     font-size: 1.25vw;
+}
+@keyframes fromBottomToTheTop {
+    from{bottom: -430%;}
+    to{bottom: 0%;}
+}
+@keyframes goUp {
+    from{bottom: 0%;}
+    to{bottom: 100%;}
+}
+
+/***** Opütion ****/
+#options{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+#options .scroll{
+    position:relative;
+    text-align: center;
+    left:1%;
+    top: 5%;
 }
