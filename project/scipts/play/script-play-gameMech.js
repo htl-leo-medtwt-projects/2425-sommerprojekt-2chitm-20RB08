@@ -22,6 +22,11 @@ let fighters = {
  * New Game
  ********************/
 function newGame(enemiePos) {
+    // copy from enemie deck
+    let enemieDeck = [];
+    for(let i = 0; i < ENEMIES[enemiePos].deck.length; i++){
+        enemieDeck[i] = ENEMIES[enemiePos].deck[i];
+    }
     // configoriere kämpfer    
     fighters = {
         player: {
@@ -36,7 +41,7 @@ function newGame(enemiePos) {
         enemie: {
             name: ENEMIES[enemiePos].name,
             img: ENEMIES[enemiePos].img,
-            deck: ENEMIES[enemiePos].deck,
+            deck: enemieDeck,
             live: ENEMIES[enemiePos].live,
             layedDownCards: [],
             currentCard: null,
