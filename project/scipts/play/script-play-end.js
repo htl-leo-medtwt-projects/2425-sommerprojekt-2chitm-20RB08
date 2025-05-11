@@ -4,10 +4,10 @@
 function showEnd(){
     console.log('***** Schluss *****');
     
-    doAnimation('#end-screen', 'fromBottomToTheTop', 65, 'linear');
+    doAnimation('#end-screen', 'fromBottomToTheTop', 55, 'linear');
     setTimeout(()=>{
         document.getElementById('end-screen').style.bottom = '0%';
-    }, 65000)
+    }, 55000)
 
     // music
     setBackgroundAudio('../sounds/backgroundMusic/endMusic.mp3');
@@ -37,7 +37,9 @@ function restartGame(){
  ********************/
 function continueGame(){
     console.log('===== Spiel geht weiter ======');
-    doAnimation('#end-screen', 'goUp', 2, 'linear');
+    document.getElementById(`end-screen`).style.animation = 'none';
+    document.getElementById(`end-screen`).offsetHeight;
+    document.getElementById(`end-screen`).style.animation = `goUp 2s linear`;
     setTimeout(()=>{
         document.getElementById('end-screen').style.bottom = '100%';
     }, 2000)
