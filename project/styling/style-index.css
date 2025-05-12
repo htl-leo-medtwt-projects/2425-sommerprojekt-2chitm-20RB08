@@ -49,6 +49,25 @@
     left: 50%;
 }
 @keyframes appear {
-    from{margin-top: 40%; opacity: 0;}
-    to{margin-top: 35%; opacity: 1;}
+    from{transform: translateY(20%); opacity: 0;}
+    to{transform: translateY(0%); opacity: 1;}
+}
+
+/****************************
+* Player or Delet
+*****************************/
+#playOrDelet{
+    position: absolute;
+    top: 1000%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: var(--transform-centerPosition) !important;
+}
+#playOrDelet >*{
+    transform: scale(0.7);
+}
+#playOrDelet >*:active{
+    transform: scale(0.6);
 }
