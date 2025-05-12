@@ -11,7 +11,7 @@
 * Plates
 *****************************/
 /***** Scroll *****/
-.scroll {
+#play {
     bottom: 0%;
     left: 50%;
 
@@ -29,4 +29,26 @@
 #logo{
     left: 50%;
     top: 15%;
+}
+
+/****************************
+* Player Select
+*****************************/
+#playerSelect{
+    width: 100%;
+    height: fit-content;
+    margin: 350% 0px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    justify-content: center;
+    align-items: center;
+}
+#playerSelect> * {
+    position: relative;
+    left: 50%;
+}
+@keyframes appear {
+    from{margin-top: 40%; opacity: 0;}
+    to{margin-top: 35%; opacity: 1;}
 }

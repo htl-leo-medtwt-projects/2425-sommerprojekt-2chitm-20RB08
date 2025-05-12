@@ -8,7 +8,10 @@
     <!--Style-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styling/style-index.css">
-
+    <!--Script-->
+    <script src="scipts/index/playerSelect.js"></script>
+    <script src="scipts/index/conentgeneration.js"></script>
+    
     <!--Audio-->
     <script defer>
         let backgroundAudio = new Audio('sounds/backgroundMusic/index.mp3')
@@ -24,7 +27,19 @@
         <!--Logo-->
         <img src="img/logo.png" alt="CardClash" id="logo">
         <!--Scrool-->
-        <div class="scroll"><a href="pages/reveal.js-master/tutorial.html">Play</a></div>
+        <div class="scroll" id="play" onclick="showPlayerselection()"><p>Start</p></div>
+
+        <!--playeselect-->
+        <div id="playerSelect">
+            <div class="scroll" onclick="playHero()"><a href="pages/reveal.js-master/tutorial.html"></a></div>
+            <div class="scroll"></div>
+            <div class="scroll"></div>
+        </div>
+        <!--Play or delet-->
+        <div id="playOrDelet">
+            <div class="plate">Delete</div>
+            <div class="plate">Play</div>
+        </div>
     </div>
 </body>
 </html>
