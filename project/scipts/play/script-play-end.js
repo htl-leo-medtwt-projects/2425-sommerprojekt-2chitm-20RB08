@@ -4,10 +4,10 @@
 function showEnd(){
     console.log('***** Schluss *****');
     
-    doAnimation('#end-screen', 'fromBottomToTheTop', 65, 'linear');
+    doAnimation('#end-screen', 'fromBottomToTheTop', 55, 'linear');
     setTimeout(()=>{
         document.getElementById('end-screen').style.bottom = '0%';
-    }, 65000)
+    }, 55000)
 
     // music
     setBackgroundAudio('../sounds/backgroundMusic/endMusic.mp3');
@@ -43,4 +43,5 @@ function continueGame(){
     }, 2000)
     createCave();
     safePlayer();
+    document.getElementById('backScroll').innerHTML = '<a href="navigation.html">Back</a>';
 }
