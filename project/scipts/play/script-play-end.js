@@ -37,7 +37,9 @@ function restartGame(){
  ********************/
 function continueGame(){
     console.log('===== Spiel geht weiter ======');
-    doAnimation('#end-screen', 'goUp', 2, 'linear');
+    document.getElementById(`end-screen`).style.animation = 'none';
+    document.getElementById(`end-screen`).offsetHeight;
+    document.getElementById(`end-screen`).style.animation = `goUp 2s linear`;
     setTimeout(()=>{
         document.getElementById('end-screen').style.bottom = '100%';
     }, 2000)

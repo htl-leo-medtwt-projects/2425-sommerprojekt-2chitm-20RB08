@@ -33,33 +33,33 @@ class Player {
 
     getAllCard() {
         this.deck = [];
-    
+
         // Startdeck
         if (this.startDeck) this.deck.push(...this.startDeck);
-    
+
         // Ausgerüstete Loots
         if (this.weapon) this.deck.push(...this.weapon.deck);
         if (this.armor) this.deck.push(...this.armor.deck);
         if (this.skil) this.deck.push(...this.skil.deck);
-    
+
         return this.deck;
     }
-    
+
 
     getAllOwnedLoots() {
         return [this.weapon, this.armor, this.skil];
     }
 
-    getCurrentLive(){
+    getCurrentLive() {
         let live = 5;
 
         let allLoot = this.getAllOwnedLoots();
-        for (let i = 0; i < allLoot.length; i++){
-            if (allLoot[i] != null){
+        for (let i = 0; i < allLoot.length; i++) {
+            if (allLoot[i] != null) {
                 live += allLoot[i].extraLife;
             }
         }
-        
+
         this.health = live;
         return live;
     }
@@ -68,15 +68,20 @@ class Player {
 /***********************
  * Get or create Player
  **********************/
-let playerData = JSON.parse(localStorage['CC_player'] ?? '{}');
-let player = Object.assign(new Player(), playerData);
+let playerData = JSON.parse(localStorage['CC_player']);
+let playerIndex = playerData.playerIndex;
+let player;
+if (playerData.players[playerIndex] == null) {
+    playerData.players[playerIndex] = new Player();
+}
 
-
-localStorage['CC_player'] = JSON.stringify(player);
+player = playerData.players[playerIndex]
+localStorage['CC_player'] = JSON.stringify(playerData);
 
 /***********************
  * Safe player
  **********************/
-function safePlayer(){
-    localStorage['CC_player'] = JSON.stringify(player);
+function safePlayer() {
+    playerData.players[playerIndex] = player;
+    localStorage['CC_player'] = JSON.stringify(playerData);
 }
