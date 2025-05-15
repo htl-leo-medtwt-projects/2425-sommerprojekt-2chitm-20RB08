@@ -1,11 +1,11 @@
 /*****************
  * Schow end
  ***************/
-function showEnd(){
+function showEnd() {
     console.log('***** Schluss *****');
-    
+
     doAnimation('#end-screen', 'fromBottomToTheTop', 55, 'linear');
-    setTimeout(()=>{
+    setTimeout(() => {
         document.getElementById('end-screen').style.bottom = '0%';
     }, 55000)
 
@@ -26,7 +26,7 @@ document.getElementById('end-screen').addEventListener('click', () => {
 /*****************
  * Restart game
  *****************/
-function restartGame(){
+function restartGame() {
     player = new Player(player.name);
     console.log('===== Spiel wird neugestarter ======')
     safePlayer();
@@ -35,15 +35,16 @@ function restartGame(){
 /********************
  * Continue the Game
  ********************/
-function continueGame(){
+function continueGame() {
     console.log('===== Spiel geht weiter ======');
-    document.getElementById(`end-screen`).style.animation = 'none';
-    document.getElementById(`end-screen`).offsetHeight;
-    document.getElementById(`end-screen`).style.animation = `goUp 2s linear`;
-    setTimeout(()=>{
+    setTimeout(() => {
+        doAnimation('#end-screen', 'goUp', 2, 'linear')
+    }, 50)
+    setTimeout(() => {
         document.getElementById('end-screen').style.bottom = '100%';
-    }, 2000)
-    createCave();
-    safePlayer();
-    document.getElementById('backScroll').innerHTML = '<a href="navigation.html">Back</a>';
+        createCave();
+        safePlayer();
+        document.getElementById('backScroll').innerHTML = '<a href="navigation.html">Back</a>';
+    }, 2050)
+
 }
