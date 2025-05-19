@@ -48,7 +48,7 @@ function buyLootCard(pos) {
         }
 
         // Player neuen status speichern
-        localStorage['CC_player'] = JSON.stringify(player);
+        safePlayer();
 
         // information loggen
         console.log(`***** Purchaes succeeded *****\nYou bought${sellable[pos].name}`);
