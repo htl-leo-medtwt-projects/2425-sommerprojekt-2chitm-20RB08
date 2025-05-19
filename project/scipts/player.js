@@ -70,12 +70,17 @@ class Player {
  **********************/
 let playerData = JSON.parse(localStorage['CC_player']);
 let playerIndex = playerData.playerIndex;
+let playerObj = playerData.players[playerIndex];
 let player;
-if (playerData.players[playerIndex] == null) {
-    playerData.players[playerIndex] = new Player();
+
+if (playerObj == null) {
+    player = new Player();
+    playerData.players[playerIndex] = player;
+} else {
+    // Rekonstruiere Player-Instanz aus gespeicherten Daten
+    player = Object.assign(new Player(), playerObj);
 }
 
-player = playerData.players[playerIndex]
 localStorage['CC_player'] = JSON.stringify(playerData);
 
 /***********************
