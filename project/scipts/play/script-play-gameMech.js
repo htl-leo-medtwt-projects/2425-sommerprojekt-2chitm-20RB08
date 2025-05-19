@@ -86,6 +86,9 @@ function newGame(enemiePos) {
 
     // background music switchen
     setBackgroundAudio('../sounds/backgroundMusic/navigation.mp3')
+
+    // escape button added
+    document.getElementById('escape').style.bottom = "5%";
 }
 
 function getRandomNum(size) {
@@ -415,4 +418,10 @@ function gameOver() {
 
     // spilerstand neu speicher
     safePlayer();
+}
+
+function escapeLevel(){
+    fighters.player.live = 0;
+    gameOver();
+    document.getElementById('escape').style.bottom = "100%";
 }
